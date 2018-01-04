@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<!-- Werewolf the Forsaken - 1000px max? -->
+<html>
+
+<head>
+  <meta name="description" content="World of Darkness Character Sheet - Werewolf the Forsaken">
+  <title>WOD - Werewolf the Forsaken</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="\World of Darkness Web\app.js"></script>
+
+</head>
+
+<body>
+  <h1>WEREWOLF THE FORSAKEN</h1>
+  <p>Character Sheet Generator, XP value calculator and spend tracker</p>
+<br>
+
+
+  <div>
+    <div>
+      <button id="calculateXp">Calculate XP Value Button</button>
+    </div>
+    <div>
+      XP Value:
+      <span id="xpDisplay"></span>
+    </div>
+
+    <div>
+      <button id="build">Generate a new character</button>
+    </div>
+    <div>
+      <span id="buildDisplay"></span>
+    </div>
+
+  </div>
+
+  <div class="description">
+    <ul>
+      <li>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Character Name">
+      </li>
+      <li>
+        <label for="player">Player:</label>
+        <input type="text" name="player" id="player" placeholder="Your Name">
+      </li>
+      <li>
+        <label for="chronicle">Chronicle:</label>
+        <input type="text" name="chronicle" id="chronicle" placeholder="Campaign Title">
+      </li>
+    </ul>
+
+    <ul>
+      <li>
+        Virtue:
+        <br>
+        <select id="virtue">
+          <option value="ChooseOne">Choose One</option>
+          <option value="Chastity">Chastity</option>
+          <option value="Temperance">Temperance</option>
+          <option value="Charity">Charity</option>
+          <option value="Diligence">Diligence</option>
+          <option value="Patience">Patience</option>
+          <option value="Kindness">Kindness</option>
+          <option value="Humility">Humility</option>
+        </select>
+      </li>
+      <li>
+        Vice:
+        <br>
+        <select id="vice">
+          <option value="ChooseOne">Choose One</option>
+          <option value="Lust">Lust</option>
+          <option value="Gluttony">Gluttony</option>
+          <option value="Greed">Greed</option>
+          <option value="Sloth">Sloth</option>
+          <option value="Wrath">Wrath</option>
+          <option value="Envy">Envy</option>
+          <option value="Pride">Pride</option>
+        </select>
+      </li>
+      <li>
+        <label for="concept">Concept:</label>
+        <input type="text" name="concept" id="concept" placeholder="What inspired this character creation?">
+      </li>
+    </ul>
+
+    <ul>
+      <li>
+        Auspice:
+        <select id="auspice">
+          <option value="chooseOne">The moon of your wolf</option>
+          <option value="rahu">Rahu</option>
+          <option value="cahalith">Cahalith</option>
+          <option value="elodoth">Elodoth</option>
+          <option value="ithaeur">Ithaeur</option>
+          <option value="irraka">Irraka</option>
+        </select>
+      </li>
+      <li>
+        Tribe:
+        <select id="tribe">
+          <option value="chooseOne">The tribe of your wolf</option>
+          <option value="bloodTalons">Blood Talons</option>
+          <option value="boneShadows">Bone Shadows</option>
+          <option value="huntersInDarkness">Hunters in Darkness</option>
+          <option value="ironMasters">Iron Masters</option>
+          <option value="stormLords">Storm Lords</option>
+          <option value="ghostWolves">Ghost Wolves</option>
+        </select>
+      </li>
+      <li>
+        <label for="lodge">Lodge:</label>
+        <input type="text" name="lodge" id="lodge" placeholder="The lodge in your tribe">
+      </li>
+    </ul>
+  </div>
+
+<br>
+
+  <div>
+    <h2>ATTRIBUTES</h2>
+    <div class="attributes-wrapper">
+      <div class="attributes">
+        <h3>MENTAL</h3>
+        <ul>
+
+          <li>
+            <div class="statsBox">
+              <div>
+                <label for="intelligenceSpecialisation">Intelligence:</label>
+              </div>
+              <div>
+                <input type="radio" name="intelligence" id="intelligence1" checked>
+                <input type="radio" name="intelligence" id="intelligence2">
+                <input type="radio" name="intelligence" id="intelligence3">
+                <input type="radio" name="intelligence" id="intelligence4">
+                <input type="radio" name="intelligence" id="intelligence5">
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="statsBox">
+              <div>
+                <label for="witsSpecialisation">Wits:</label>
+              </div>
+              <div>
+                <input type="radio" name="wits" id="wits1" checked>
+                <input type="radio" name="wits" id="wits2">
+                <input type="radio" name="wits" id="wits3">
+                <input type="radio" name="wits" id="wits4">
+                <input type="radio" name="wits" id="wits5">
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="statsBox">
+              <div>
+                <label for="resolveSpecialisation">Resolve:</label>
+              </div>
+              <div>
+                <input type="radio" name="resolve" id="resolve1" checked>
+                <input type="radio" name="resolve" id="resolve2">
+                <input type="radio" name="resolve" id="resolve3">
+                <input type="radio" name="resolve" id="resolve4">
+                <input type="radio" name="resolve" id="resolve5">
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="attributes">
+        <h3>PHYSICAL</h3>
+        <ul>
+
+          <li>
+            <div class="statsBox">
+              <div>
+                <label for="strengthSpecialisation">Strength:</label>
+              </div>
+              <div>
+                <input type="radio" name="strength" id="strength1" value="1" checked>
+                <input type="radio" name="strength" id="strength2" value="2">
+                <input type="radio" name="strength" id="strength3" value="3">
+                <input type="radio" name="strength" id="strength4" value="4">
+                <input type="radio" name="strength" id="strength5" value="5">
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="statsBox">
+              <div>
+                <label for="dexteritySpecialisation">Dexterity:</label>
+              </div>
+              <div>
+                <input type="radio" name="dexterity" id="dexterity1" checked>
+                <input type="radio" name="dexterity" id="dexterity2">
+                <input type="radio" name="dexterity" id="dexterity3">
+                <input type="radio" name="dexterity" id="dexterity4">
+                <input type="radio" name="dexterity" id="dexterity5">
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="statsBox">
+              <div class="attributeName" id="attributeName">
+                <label for="staminaSpecialisation">Stamina:</label>
+              </div>
+              <div class="attributeValue" id="attributeValue">
+                <input type="radio" name="stamina" id="stamina1" checked>
+                <input type="radio" name="stamina" id="stamina2">
+                <input type="radio" name="stamina" id="stamina3">
+                <input type="radio" name="stamina" id="stamina4">
+                <input type="radio" name="stamina" id="stamina5">
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+<br>
+
+      <div class="attributes">
+        <h3>SOCIAL</h3>
+        <ul>
+          <li>
+            <div class="statsBox">
+              <div>
+                <label for="presenceSpecialisation">Presence:</label>
+              </div>
+              <div>
+                <input type="radio" name="presence" id="presence1" checked>
+                <input type="radio" name="presence" id="presence2">
+                <input type="radio" name="presence" id="presence3">
+                <input type="radio" name="presence" id="presence4">
+                <input type="radio" name="presence" id="presence5">
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="statsBox">
+              <div>
+                <label for="manipulationSpecialisation">Manipulation:</label>
+              </div>
+              <div>
+                <input type="radio" name="manipulation" id="manipulation1" checked>
+                <input type="radio" name="manipulation" id="manipulation2">
+                <input type="radio" name="manipulation" id="manipulation3">
+                <input type="radio" name="manipulation" id="manipulation4">
+                <input type="radio" name="manipulation" id="manipulation5">
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="statsBox">
+              <div>
+                <label for="composureSpecialisation">Composure:</label>
+              </div>
+              <div>
+                <input type="radio" name="composure" id="composure1" checked>
+                <input type="radio" name="composure" id="composure2">
+                <input type="radio" name="composure" id="composure3">
+                <input type="radio" name="composure" id="composure4">
+                <input type="radio" name="composure" id="composure5">
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<br>
+
+  <div>
+    <h2>ABILITIES</h2>
+
+    <div class="abilities-wrapper">
+      <div class="abilities">
+        <h3>MENTAL</h3>
+        <ul>
+          <li>
+            <div class="statsBox">
+              <div>
+                Academics:
+                <!-- m1 -->
+              </div>
+              <div>
+                <input type="checkbox" name="academicsTraining" id="academicsTraining">
+                <input type="radio" name="academics" id="academics1">
+                <input type="radio" name="academics" id="academics2">
+                <input type="radio" name="academics" id="academics3">
+                <input type="radio" name="academics" id="academics4">
+                <input type="radio" name="academics" id="academics5">
+              </div>
+            </div>
+            <input type="text" name="academicsSpecialisation" id="academicsSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Athletics:
+                <!-- m2 -->
+              </div>
+              <div>
+                <input type="checkbox" name="computerTraining" id="computerTraining">
+                <input type="radio" name="computer" id="computer1">
+                <input type="radio" name="computer" id="computer2">
+                <input type="radio" name="computer" id="computer3">
+                <input type="radio" name="computer" id="computer4">
+                <input type="radio" name="computer" id="computer5">
+              </div>
+            </div>
+            <input type="text" name="computerSpecialisation" id="computerSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Crafts:
+                <!-- m3 -->
+              </div>
+              <div>
+                <input type="checkbox" name="craftsTraining" id="craftsTraining">
+                <input type="radio" name="crafts" id="crafts1">
+                <input type="radio" name="crafts" id="crafts2">
+                <input type="radio" name="crafts" id="crafts3">
+                <input type="radio" name="crafts" id="crafts4">
+                <input type="radio" name="crafts" id="crafts5">
+              </div>
+            </div>
+            <input type="text" name="craftsSpecialisation" id="craftsSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Investigation:
+                <!-- m4 -->
+              </div>
+              <div>
+                <input type="checkbox" name="investigationTraining" id="investigationTraining">
+                <input type="radio" name="investigation" id="investigation1">
+                <input type="radio" name="investigation" id="investigation2">
+                <input type="radio" name="investigation" id="investigation3">
+                <input type="radio" name="investigation" id="investigation4">
+                <input type="radio" name="investigation" id="investigation5">
+              </div>
+            </div>
+            <input type="text" name="investigationSpecialisation" id="investigationSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Medicine:
+                <!-- m5 -->
+              </div>
+              <div>
+                <input type="checkbox" name="medicineTraining" id="medicineTraining">
+                <input type="radio" name="medicine" id="medicine1">
+                <input type="radio" name="medicine" id="medicine2">
+                <input type="radio" name="medicine" id="medicine3">
+                <input type="radio" name="medicine" id="medicine4">
+                <input type="radio" name="medicine" id="medicine5">
+              </div>
+            </div>
+            <input type="text" name="medicineSpecialisation" id="medicineSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Occult:
+                <!-- m6 -->
+              </div>
+              <div>
+                <input type="checkbox" name="occultTraining" id="occultTraining">
+                <input type="radio" name="occult" id="occult1">
+                <input type="radio" name="occult" id="occult2">
+                <input type="radio" name="occult" id="occult3">
+                <input type="radio" name="occult" id="occult4">
+                <input type="radio" name="occult" id="occult5">
+              </div>
+            </div>
+            <input type="text" name="occultSpecialisation" id="occultSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Politics:
+                <!-- m7 -->
+              </div>
+              <div>
+                <input type="checkbox" name="politicsTraining" id="politicsTraining">
+                <input type="radio" name="politics" id="politics1">
+                <input type="radio" name="politics" id="politics2">
+                <input type="radio" name="politics" id="politics3">
+                <input type="radio" name="politics" id="politics4">
+                <input type="radio" name="politics" id="politics5">
+              </div>
+            </div>
+            <input type="text" name="politicsSpecialisation" id="politicsSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Science:
+                <!-- m8 -->
+              </div>
+              <div>
+                <input type="checkbox" name="scienceTraining" id="scienceTraining">
+                <input type="radio" name="science" id="science1">
+                <input type="radio" name="science" id="science2">
+                <input type="radio" name="science" id="science3">
+                <input type="radio" name="science" id="science4">
+                <input type="radio" name="science" id="science5">
+              </div>
+            </div>
+            <input type="text" name="scienceSpecialisation" id="scienceSpecialisation" placeholder="Specialization if applicable">
+          </li>
+        </ul>
+      </div>
+
+      <div class="abilities">
+        <h3>PHYSICAL</h3>
+        <ul>
+          <li>
+            <div class="statsBox">
+              <div>
+                Athletics:
+                <!-- p1 -->
+              </div>
+              <div>
+                <input type="checkbox" name="athleticsTraining" id="athleticsTraining">
+                <input type="radio" name="athletics" id="athletics1">
+                <input type="radio" name="athletics" id="athletics2">
+                <input type="radio" name="athletics" id="athletics3">
+                <input type="radio" name="athletics" id="athletics4">
+                <input type="radio" name="athletics" id="athletics5">
+              </div>
+            </div>
+            <input type="text" name="athleticsSpecialisation" id="athleticsSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Brawl:
+                <!-- p2 -->
+              </div>
+              <div>
+                <input type="checkbox" name="brawlTraining" id="brawlTraining">
+                <input type="radio" name="brawl" id="brawl1">
+                <input type="radio" name="brawl" id="brawl2">
+                <input type="radio" name="brawl" id="brawl3">
+                <input type="radio" name="brawl" id="brawl4">
+                <input type="radio" name="brawl" id="brawl5">
+              </div>
+            </div>
+            <input type="text" name="brawlSpecialisation" id="brawlSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Drive:
+                <!-- p3 -->
+              </div>
+              <div>
+                <input type="checkbox" name="driveTraining" id="driveTraining">
+                <input type="radio" name="drive" id="drive1">
+                <input type="radio" name="drive" id="drive2">
+                <input type="radio" name="drive" id="drive3">
+                <input type="radio" name="drive" id="drive4">
+                <input type="radio" name="drive" id="drive5">
+              </div>
+            </div>
+            <input type="text" name="driveSpecialisation" id="driveSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Firearms:
+                <!-- p4 -->
+              </div>
+              <div>
+                <input type="checkbox" name="firearmsTraining" id="firearmsTraining">
+                <input type="radio" name="firearms" id="firearms1">
+                <input type="radio" name="firearms" id="firearms2">
+                <input type="radio" name="firearms" id="firearms3">
+                <input type="radio" name="firearms" id="firearms4">
+                <input type="radio" name="firearms" id="firearms5">
+              </div>
+            </div>
+            <input type="text" name="firearmsSpecialisation" id="firearmsSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Larceny:
+                <!-- p5 -->
+              </div>
+              <div>
+                <input type="checkbox" name="larcenyTraining" id="larcenyTraining">
+                <input type="radio" name="larceny" id="larceny1">
+                <input type="radio" name="larceny" id="larceny2">
+                <input type="radio" name="larceny" id="larceny3">
+                <input type="radio" name="larceny" id="larceny4">
+                <input type="radio" name="larceny" id="larceny5">
+              </div>
+            </div>
+            <input type="text" name="larcenySpecialisation" id="larcenySpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Stealth:
+                <!-- p6 -->
+              </div>
+              <div>
+                <input type="checkbox" name="stealthTraining" id="stealthTraining">
+                <input type="radio" name="stealth" id="stealth1">
+                <input type="radio" name="stealth" id="stealth2">
+                <input type="radio" name="stealth" id="stealth3">
+                <input type="radio" name="stealth" id="stealth4">
+                <input type="radio" name="stealth" id="stealth5">
+              </div>
+            </div>
+            <input type="text" name="stealthSpecialisation" id="stealthSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Survival:
+                <!-- p7 -->
+              </div>
+              <div>
+                <input type="checkbox" name="survivalTraining" id="survivalTraining">
+                <input type="radio" name="survival" id="survival1">
+                <input type="radio" name="survival" id="survival2">
+                <input type="radio" name="survival" id="survival3">
+                <input type="radio" name="survival" id="survival4">
+                <input type="radio" name="survival" id="survival5">
+              </div>
+            </div>
+            <input type="text" name="survivalSpecialisation" id="survivalSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Weaponry:
+                <!-- p8 -->
+              </div>
+              <div>
+                <input type="checkbox" name="weaponryTraining" id="weaponryTraining">
+                <input type="radio" name="weaponry" id="weaponry1">
+                <input type="radio" name="weaponry" id="weaponry2">
+                <input type="radio" name="weaponry" id="weaponry3">
+                <input type="radio" name="weaponry" id="weaponry4">
+                <input type="radio" name="weaponry" id="weaponry5">
+              </div>
+            </div>
+            <input type="text" name="weaponrySpecialisation" id="weaponrySpecialisation" placeholder="Specialization if applicable">
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="abilities">
+        <h3>SOCIAL</h3>
+        <ul>
+          <li>
+            <div class="statsBox">
+              <div>
+                Animal Ken:
+                <!-- s1 -->
+              </div>
+              <div>
+                <input type="checkbox" name="animalKenTraining" id="animalKenTraining">
+                <input type="radio" name="animalKen" id="animalKen1">
+                <input type="radio" name="animalKen" id="animalKen2">
+                <input type="radio" name="animalKen" id="animalKen3">
+                <input type="radio" name="animalKen" id="animalKen4">
+                <input type="radio" name="animalKen" id="animalKen5">
+              </div>
+            </div>
+            <input type="text" name="animalKenSpecialisation" id="animalKenSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Empathy:
+                <!-- s2 -->
+              </div>
+              <div>
+                <input type="checkbox" name="empathyTraining" id="empathyTraining">
+                <input type="radio" name="empathy" id="empathy1">
+                <input type="radio" name="empathy" id="empathy2">
+                <input type="radio" name="empathy" id="empathy3">
+                <input type="radio" name="empathy" id="empathy4">
+                <input type="radio" name="empathy" id="empathy5">
+              </div>
+            </div>
+            <input type="text" name="empathySpecialisation" id="empathySpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Expression:
+                <!-- s3 -->
+              </div>
+              <div>
+                <input type="checkbox" name="expressionTraining" id="expressionTraining">
+                <input type="radio" name="expression" id="expression1">
+                <input type="radio" name="expression" id="expression2">
+                <input type="radio" name="expression" id="expression3">
+                <input type="radio" name="expression" id="expression4">
+                <input type="radio" name="expression" id="expression5">
+              </div>
+            </div>
+            <input type="text" name="expressionSpecialisation" id="expressionSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Intimidation:
+                <!-- s4 -->
+              </div>
+              <div>
+                <input type="checkbox" name="intimidationTraining" id="intimidationTraining">
+                <input type="radio" name="intimidation" id="intimidation1">
+                <input type="radio" name="intimidation" id="intimidation2">
+                <input type="radio" name="intimidation" id="intimidation3">
+                <input type="radio" name="intimidation" id="intimidation4">
+                <input type="radio" name="intimidation" id="intimidation5">
+              </div>
+            </div>
+            <input type="text" name="intimidationSpecialisation" id="intimidationSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Persuasion:
+                <!-- s5 -->
+              </div>
+              <div>
+                <input type="checkbox" name="persuasionTraining" id="persuasionTraining">
+                <input type="radio" name="persuasion" id="persuasion1">
+                <input type="radio" name="persuasion" id="persuasion2">
+                <input type="radio" name="persuasion" id="persuasion3">
+                <input type="radio" name="persuasion" id="persuasion4">
+                <input type="radio" name="persuasion" id="persuasion5">
+              </div>
+            </div>
+            <input type="text" name="persuasionSpecialisation" id="persuasionSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Socialize:
+                <!-- s6 -->
+              </div>
+              <div>
+                <input type="checkbox" name="socializeTraining" id="socializeTraining">
+                <input type="radio" name="socialize" id="socialize1">
+                <input type="radio" name="socialize" id="socialize2">
+                <input type="radio" name="socialize" id="socialize3">
+                <input type="radio" name="socialize" id="socialize4">
+                <input type="radio" name="socialize" id="socialize5">
+              </div>
+            </div>
+            <input type="text" name="socializeSpecialisation" id="socializeSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Streetwise:
+                <!-- s7 -->
+              </div>
+              <div>
+                <input type="checkbox" name="streetwiseTraining" id="streetwiseTraining">
+                <input type="radio" name="streetwise" id="streetwise1">
+                <input type="radio" name="streetwise" id="streetwise2">
+                <input type="radio" name="streetwise" id="streetwise3">
+                <input type="radio" name="streetwise" id="streetwise4">
+                <input type="radio" name="streetwise" id="streetwise5">
+              </div>
+            </div>
+            <input type="text" name="streetwiseSpecialisation" id="streetwiseSpecialisation" placeholder="Specialization if applicable">
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                Subterfuge:
+                <!-- s8 -->
+              </div>
+              <div>
+                <input type="checkbox" name="subterfugeTraining" id="subterfugeTraining">
+                <input type="radio" name="subterfuge" id="subterfuge1">
+                <input type="radio" name="subterfuge" id="subterfuge2">
+                <input type="radio" name="subterfuge" id="subterfuge3">
+                <input type="radio" name="subterfuge" id="subterfuge4">
+                <input type="radio" name="subterfuge" id="subterfuge5">
+              </div>
+            </div>
+            <input type="text" name="subterfugeSpecialisation" id="subterfugeSpecialisation" placeholder="Specialization if applicable">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<br>
+
+  <div>
+    <h2>ADVANTAGES</h2>
+    <div class="advantages-wrapper">
+      <div class="advantages">
+        <ul>
+          <h3>MERITS</h3>
+          <li>
+            <div class='inline' name="merit1">
+              <div>
+                <input type="radio" name="merit1" id="merit1value1">
+                <input type="radio" name="merit1" id="merit1value2">
+                <input type="radio" name="merit1" id="merit1value3">
+                <input type="radio" name="merit1" id="merit1value4">
+                <input type="radio" name="merit1" id="merit1value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="merit1select" name="merit1select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="merit2">
+              <div>
+                <input type="radio" name="merit2" id="merit2value1">
+                <input type="radio" name="merit2" id="merit2value2">
+                <input type="radio" name="merit2" id="merit2value3">
+                <input type="radio" name="merit2" id="merit2value4">
+                <input type="radio" name="merit2" id="merit2value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="merit2select" name="merit2select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="merit3">
+              <div>
+                <input type="radio" name="merit3" id="merit3value1">
+                <input type="radio" name="merit3" id="merit3value2">
+                <input type="radio" name="merit3" id="merit3value3">
+                <input type="radio" name="merit3" id="merit3value4">
+                <input type="radio" name="merit3" id="merit3value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="merit3select" name="merit3select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="merit4">
+              <div>
+                <input type="radio" name="merit4" id="merit4value1">
+                <input type="radio" name="merit4" id="merit4value2">
+                <input type="radio" name="merit4" id="merit4value3">
+                <input type="radio" name="merit4" id="merit4value4">
+                <input type="radio" name="merit4" id="merit4value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="merit4select" name="merit4select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="merit5">
+              <div>
+                <input type="radio" name="merit5" id="merit5value1">
+                <input type="radio" name="merit5" id="merit5value2">
+                <input type="radio" name="merit5" id="merit5value3">
+                <input type="radio" name="merit5" id="merit5value4">
+                <input type="radio" name="merit5" id="merit5value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="merit5select" name="merit5select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="merit6">
+              <div>
+                <input type="radio" name="merit6" id="merit6value1">
+                <input type="radio" name="merit6" id="merit6value2">
+                <input type="radio" name="merit6" id="merit6value3">
+                <input type="radio" name="merit6" id="merit6value4">
+                <input type="radio" name="merit6" id="merit6value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="merit6select" name="merit6select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="merit7">
+              <div>
+                <input type="radio" name="merit7" id="merit7value1">
+                <input type="radio" name="merit7" id="merit7value2">
+                <input type="radio" name="merit7" id="merit7value3">
+                <input type="radio" name="merit7" id="merit7value4">
+                <input type="radio" name="merit7" id="merit7value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="merit7select" name="merit7select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="merit8">
+              <div>
+                <input type="radio" name="merit8" id="merit8value1">
+                <input type="radio" name="merit8" id="merit8value2">
+                <input type="radio" name="merit8" id="merit8value3">
+                <input type="radio" name="merit8" id="merit8value4">
+                <input type="radio" name="merit8" id="merit8value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="merit8select" name="merit8select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+
+        <ul>
+          <h3>FLAWS</h3>
+          <li>
+            <div class='inline' name="flaw1">
+              <div>
+                <input type="radio" name="flaw1" id="flaw1value1">
+                <input type="radio" name="flaw1" id="flaw1value2">
+                <input type="radio" name="flaw1" id="flaw1value3">
+                <input type="radio" name="flaw1" id="flaw1value4">
+                <input type="radio" name="flaw1" id="flaw1value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="flaw1select" name="flaw1select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="flaw2">
+              <div>
+                <input type="radio" name="flaw2" id="flaw2value1">
+                <input type="radio" name="flaw2" id="flaw2value2">
+                <input type="radio" name="flaw2" id="flaw2value3">
+                <input type="radio" name="flaw2" id="flaw2value4">
+                <input type="radio" name="flaw2" id="flaw2value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="flaw2select" name="flaw2select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="flaw3">
+              <div>
+                <input type="radio" name="flaw3" id="flaw3value1">
+                <input type="radio" name="flaw3" id="flaw3value2">
+                <input type="radio" name="flaw3" id="flaw3value3">
+                <input type="radio" name="flaw3" id="flaw3value4">
+                <input type="radio" name="flaw3" id="flaw3value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="flaw3select" name="flaw3select">
+                  <option value="ChooseOne">Choose One</option>
+              </div>
+            </div>
+            </select>
+          </li>
+          <li>
+            <div class='inline' name="flaw4">
+              <div>
+                <input type="radio" name="flaw4" id="flaw4value1">
+                <input type="radio" name="flaw4" id="flaw4value2">
+                <input type="radio" name="flaw4" id="flaw4value3">
+                <input type="radio" name="flaw4" id="flaw4value4">
+                <input type="radio" name="flaw4" id="flaw4value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="flaw4select" name="flaw4select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="flaw5">
+              <div>
+                <input type="radio" name="flaw5" id="flaw5value1">
+                <input type="radio" name="flaw5" id="flaw5value2">
+                <input type="radio" name="flaw5" id="flaw5value3">
+                <input type="radio" name="flaw5" id="flaw5value4">
+                <input type="radio" name="flaw5" id="flaw5value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="flaw5select" name="flaw5select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="flaw6">
+              <div>
+                <input type="radio" name="flaw6" id="flaw6value1">
+                <input type="radio" name="flaw6" id="flaw6value2">
+                <input type="radio" name="flaw6" id="flaw6value3">
+                <input type="radio" name="flaw6" id="flaw6value4">
+                <input type="radio" name="flaw6" id="flaw6value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="flaw6select" name="flaw6select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="flaw7">
+              <div>
+                <input type="radio" name="flaw7" id="flaw7value1">
+                <input type="radio" name="flaw7" id="flaw7value2">
+                <input type="radio" name="flaw7" id="flaw7value3">
+                <input type="radio" name="flaw7" id="flaw7value4">
+                <input type="radio" name="flaw7" id="flaw7value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="flaw7select" name="flaw7select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class='inline' name="flaw8">
+              <div>
+                <input type="radio" name="flaw8" id="flaw8value1">
+                <input type="radio" name="flaw8" id="flaw8value2">
+                <input type="radio" name="flaw8" id="fla87value3">
+                <input type="radio" name="flaw8" id="flaw8value4">
+                <input type="radio" name="flaw8" id="flaw8value5">
+              </div>
+            </div>
+            <div class='inline'>
+              <div>
+                <select id="flaw8select" name="flaw8select">
+                  <option value="ChooseOne">Choose One</option>
+                </select>
+              </div>
+            </div>
+          </li>
+        </ul>
+        </div>
+
+        <div class="advantages">
+          <ul>
+            <h3>RENOWN</h3>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Purity:
+                </div>
+                <div>
+                  <input type="radio" name="purity" id="purity1">
+                  <input type="radio" name="purity" id="purity2">
+                  <input type="radio" name="purity" id="purity3">
+                  <input type="radio" name="purity" id="purity4">
+                  <input type="radio" name="purity" id="purity5">
+                </div>
+              </div>
+              <input type="text" name="puritySpecialisation" id="puritySpecialisation">
+            </li>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Glory:
+                </div>
+                <div>
+                  <input type="radio" name="glory" id="glory1">
+                  <input type="radio" name="glory" id="glory2">
+                  <input type="radio" name="glory" id="glory3">
+                  <input type="radio" name="glory" id="glory4">
+                  <input type="radio" name="glory" id="glory5">
+                </div>
+              </div>
+              <input type="text" name="glorySpecialisation" id="glorySpecialisation">
+            </li>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Honor:
+                </div>
+                <div>
+                  <input type="radio" name="honor" id="honor1">
+                  <input type="radio" name="honor" id="honor2">
+                  <input type="radio" name="honor" id="honor3">
+                  <input type="radio" name="honor" id="honor4">
+                  <input type="radio" name="honor" id="honor5">
+                </div>
+              </div>
+              <input type="text" name="honorSpecialisation" id="honorSpecialisation">
+            </li>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Wisdom:
+                </div>
+                <div>
+                  <input type="radio" name="wisdom" id="wisdom1">
+                  <input type="radio" name="wisdom" id="wisdom2">
+                  <input type="radio" name="wisdom" id="wisdom3">
+                  <input type="radio" name="wisdom" id="wisdom4">
+                  <input type="radio" name="wisdom" id="wisdom5">
+                </div>
+              </div>
+              <input type="text" name="wisdomSpecialisation" id="wisdomSpecialisation">
+            </li>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Cunning:
+                </div>
+                <div>
+                  <input type="radio" name="cunning" id="cunning1">
+                  <input type="radio" name="cunning" id="cunning2">
+                  <input type="radio" name="cunning" id="cunning3">
+                  <input type="radio" name="cunning" id="cunning4">
+                  <input type="radio" name="cunning" id="cunning5">
+                </div>
+              </div>
+              <input type="text" name="cunningSpecialisation" id="cunningSpecialisation">
+            </li>
+          </ul>
+
+          </li>
+          <ul class="powerSupply">
+            <h3>ESSENCE</h3>
+            <li align-content: center>
+              <input type="checkbox" name="powerSupply" id="essence1">
+              <input type="checkbox" name="powerSupply" id="essence2">
+              <input type="checkbox" name="powerSupply" id="essence3">
+              <input type="checkbox" name="powerSupply" id="essence4">
+              <input type="checkbox" name="powerSupply" id="essence5">
+              <input type="checkbox" name="powerSupply" id="essence6">
+              <input type="checkbox" name="powerSupply" id="essence7">
+              <input type="checkbox" name="powerSupply" id="essence8">
+              <input type="checkbox" name="powerSupply" id="essence9">
+              <input type="checkbox" name="powerSupply" id="essence10">
+            </li>
+            <li>
+              <input type="checkbox" name="powerSupply" id="essence11">
+              <input type="checkbox" name="powerSupply" id="essence12">
+              <input type="checkbox" name="powerSupply" id="essence13">
+              <input type="checkbox" name="powerSupply" id="essence14">
+              <input type="checkbox" name="powerSupply" id="essence15">
+              <input type="checkbox" name="powerSupply" id="essence16">
+              <input type="checkbox" name="powerSupply" id="essence17">
+              <input type="checkbox" name="powerSupply" id="essence18">
+              <input type="checkbox" name="powerSupply" id="essence19">
+              <input type="checkbox" name="powerSupply" id="essence20">
+            </li>
+
+            <ul class="willpower">
+              <h3>WILLPOWER</h3>
+              <li align-content: center>
+                <input type="radio" name="permenantWillpower" id="permenantWillpower1">
+                <input type="radio" name="permenantWillpower" id="permenantWillpower2">
+                <input type="radio" name="permenantWillpower" id="permenantWillpower3">
+                <input type="radio" name="permenantWillpower" id="permenantWillpower4">
+                <input type="radio" name="permenantWillpower" id="permenantWillpower5">
+                <input type="radio" name="permenantWillpower" id="permenantWillpower6">
+                <input type="radio" name="permenantWillpower" id="permenantWillpower7">
+                <input type="radio" name="permenantWillpower" id="permenantWillpower8">
+                <input type="radio" name="permenantWillpower" id="permenantWillpower9">
+                <input type="radio" name="permenantWillpower" id="permenantWillpower10">
+              </li>
+              <li>
+                <input type="checkbox" name="currentWillpower" id="currentWillpower1" value="1">
+                <input type="checkbox" name="currentWillpower" id="currentWillpower2" value="2">
+                <input type="checkbox" name="currentWillpower" id="currentWillpower3" value="3">
+                <input type="checkbox" name="currentWillpower" id="currentWillpower4" value="4">
+                <input type="checkbox" name="currentWillpower" id="currentWillpower5" value="5">
+                <input type="checkbox" name="currentWillpower" id="currentWillpower6" value="6">
+                <input type="checkbox" name="currentWillpower" id="currentWillpower7" value="7">
+                <input type="checkbox" name="currentWillpower" id="currentWillpower8" value="8">
+                <input type="checkbox" name="currentWillpower" id="currentWillpower9" value="9">
+                <input type="checkbox" name="currentWillpower" id="currentWillpower10" value="10">
+              </li>
+              <!-- You cannot have more temporary Willpower than permenant -->
+            </ul>
+        </div>
+
+<!-- Forms block with shapeshift capabilities -->
+<div class="advantages">
+  <ul class="health">
+    <h3>SHAPESHIFTING</h3>
+
+    <div>
+      <button id="shapeshiftHishu">Hishu</button>
+      <button id="shapeshiftDalu">Dalu</button>
+      <button id="shapeshiftGauru">Gauru</button>
+      <button id="shapeshiftUrshul">Urshul</button>
+      <button id="shapeshiftUrhan">Urhan</button>
+    </div>
+
+    <div class="">
+      <h3>STATS</h3>
+      <li>
+        Size:
+      </li>
+      <li>
+        Defence:
+      </li>
+      <li>
+        initiative Modifier:
+      </li>
+      <li>
+        Speed:
+      </li>
+      <li>
+        Armour:
+      </li>
+      <li>
+        Perception:
+      </li>
+    </div>
+
+  </ul>
+</div>
+
+        <div class="health">
+          <ul class="health">
+            <h3>HEALTH</h3>
+            <li>
+              <input type="radio" name="health" id="healthPerm1">
+              <input type="radio" name="health" id="healthPerm2">
+              <input type="radio" name="health" id="healthPerm3">
+              <input type="radio" name="health" id="healthPerm4">
+              <input type="radio" name="health" id="healthPerm5">
+              <input type="radio" name="health" id="healthPerm6">
+              <input type="radio" name="health" id="healthPerm7">
+              <input type="radio" name="health" id="healthPerm8">
+              <input type="radio" name="health" id="healthPerm9">
+              <input type="radio" name="health" id="healthPerm10">
+              <input type="radio" name="health" id="healthPerm11">
+              <input type="radio" name="health" id="healthPerm12">
+              <input type="radio" name="health" id="healthPerm13">
+              <input type="radio" name="health" id="healthPerm14">
+            </li>
+            <li>
+              <input type="checkbox" name="health" id="healthTemp1" value="1">
+              <input type="checkbox" name="health" id="healthTemp2" value="2">
+              <input type="checkbox" name="health" id="healthTemp3" value="3">
+              <input type="checkbox" name="health" id="healthTemp4" value="4">
+              <input type="checkbox" name="health" id="healthTemp5" value="5">
+              <input type="checkbox" name="health" id="healthTemp6" value="6">
+              <input type="checkbox" name="health" id="healthTemp7" value="7">
+              <input type="checkbox" name="health" id="healthTemp8" value="8">
+              <input type="checkbox" name="health" id="healthTemp9" value="9">
+              <input type="checkbox" name="health" id="healthTemp10" value="10">
+              <input type="checkbox" name="health" id="healthTemp11" value="11">
+              <input type="checkbox" name="health" id="healthTemp12" value="12">
+              <input type="checkbox" name="health" id="healthTemp13" value="13">
+              <input type="checkbox" name="health" id="healthTemp14" value="14">
+            </li>
+            <!-- You cannot have more temporary Willpower than permenant -->
+          </ul>
+
+          <ul class="powerAspect">
+            <h3>PRIMAL URGE</h3>
+            <li>
+              <input type="radio" name="powerAspect" id="primalUrge1" value="1" checked>
+              <input type="radio" name="powerAspect" id="primalUrge2" value="2">
+              <input type="radio" name="powerAspect" id="primalUrge3" value="3">
+              <input type="radio" name="powerAspect" id="primalUrge4" value="4">
+              <input type="radio" name="powerAspect" id="primalUrge5" value="5">
+              <input type="radio" name="powerAspect" id="primalUrge6" value="6">
+              <input type="radio" name="powerAspect" id="primalUrge7" value="7">
+              <input type="radio" name="powerAspect" id="primalUrge8" value="8">
+              <input type="radio" name="powerAspect" id="primalUrge9" value="9">
+              <input type="radio" name="powerAspect" id="primalUrge10" value="10">
+            </li>
+          </ul>
+
+          <h3>HARMONY</h3>
+          <li>
+            <div class="statsBox">
+              <div>
+                10 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony10">
+              </div>
+              <div>
+                <input type="text" name="break10" id="break10">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                9 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony9">
+              </div>
+              <div>
+                <input type="text" name="break9" id="break9">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                8 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony8">
+              </div>
+              <div>
+                <input type="text" name="break8" id="break8">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                7 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony7" checked>
+              </div>
+              <div>
+                <input type="text" name="break7" id="break7">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                6 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony6">
+              </div>
+              <div>
+                <input type="text" name="break6" id="break6">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                5 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony5">
+              </div>
+              <div>
+                <input type="text" name="break5" id="break5">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                4 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony4">
+              </div>
+              <div>
+                <input type="text" name="break4" id="break4">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                3 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony3">
+              </div>
+              <div>
+                <input type="text" name="break3" id="break3">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                2 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony2">
+              </div>
+              <div>
+                <input type="text" name="break2" id="break2">
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="statsBox">
+              <div>
+                1 :
+              </div>
+              <div>
+                <input type="radio" name="harmonyLevel" id="harmony1">
+              </div>
+              <div>
+                <input type="text" name="break1" id="break1">
+              </div>
+            </div>
+          </li>
+        </div>
+
+        <script src="app.js" charset="utf-8"></script>
+</html>

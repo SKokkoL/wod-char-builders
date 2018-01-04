@@ -1,0 +1,130 @@
+/* -Font Calibri, Lucida Console, MS Reference Sans Serif- */
+/* -Old World of Darkness colours are charcoal and light grey- */
+/* -Old Mage: Purple and Gold- */
+/* -New Mage Turquoise and Silver- */
+/* -Old and New Vampire: Red and Black- */
+/* -Old and New Werewolf: Brown and Bronze- */
+/* -New Changeling: Emerald and Green- */
+/* -Bastet: Gold and Turquoise- */
+/* -Hunter: Black and Silver- */
+/* -- */
+/* -Consider Frames akin to the original paper sheets- */
+/* -- */
+/* -670px best output- */
+/* -- */
+/* -- */
+/* -- */
+
+html {
+  font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li input {
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+li select {
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+input[type="radio"] {
+  display: inline-block;
+    width: auto;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+}
+
+select {
+  display: inline-block;
+}
+
+.attributes-wrapper,
+.abilities-wrapper,
+.description {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.advantages-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.statsBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.attributeName {
+  align-content: flex-start;
+}
+
+.attributeValue {
+  align-content: right;
+}
+
+.attributes,
+.abilities,
+.description ul {
+  width: 31%;
+  margin: 0;
+}
+
+.advantages {
+  width: 22%;
+  margin: 0;
+}
+
+.willpower,
+.health,
+.powerAspect,
+.powerSupply,
+.humanity {
+  border: 1px;
+  text-align: center;
+}
+
+.MeritsFlaws ul {
+  margin: 0;
+  justify-content: center;
+}
+
+.MeritsFlaws li {
+  display: inline-block;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.inline select {
+  width: 147%;
+}
