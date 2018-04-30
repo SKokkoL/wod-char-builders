@@ -5,8 +5,17 @@
 
   function calculateXp() {
     document.getElementById('xpDisplay').innerHTML = 'some number';
-  }
+  };
 
+(function () {
+  function validateStarterSetup() {
+    document.getElementById('validateCheck').innerHTML = 'check';
+  }
+  // Validate starter character setup should display 'check' on click (will need checks applying at some point)
+  document.getElementById('validateStarterSetup').onclick=validateStarterSetup;
+}) ();
+  
+  
 
   //pop up window to start character generation
   document.getElementById('build').onclick = build
