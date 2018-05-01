@@ -14,15 +14,22 @@
   document.getElementById('validateStarterSetup').onclick=validateStarterSetup;
 }) ();
 
-(function build() {
+(function () {
   function testAttributes() {
-    document.getElementById('testAttributesOutput').innerHTML = physical;
-    var str=(("input[name=strength]:checked").value());
-    var dex=(("input[name=dexterity]:checked").value());
-    var sta=(("input[name=stamina]:checked").value());
-    var physical=str+dex+sta;
+    document.getElementById('testAttributesOutput').innerHTML = physicalattribute;
+    //get the value of the selected radio in group strength
+    var str=document.querySelector('input[name="strength"]:checked').value;
+    //get the value of the selected radio in group dexterity
+    var dex=document.querySelector('input[name="dexterity"]:checked').value;
+    //get the value of the selected radio in group stamina
+    var sta=document.querySelector('input[name="stamina"]:checked').value;
+    //add the 3 values together
+    var physicalattribute = Number(str) + Number(dex) + Number(sta) ;
+    //return value as a number not a string
+    console.log(physicalattribute);
+    //it prints a string where it expects a number - console prints NaN
   }
-  // Validate attributes setup should display 'yes/no' on click (check to make: )
+  // Validate attributes setup should display a a number between 0 and 12
   document.getElementById('testAttributes').onclick=testAttributes;
 }) ();
 
