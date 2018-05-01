@@ -1,23 +1,36 @@
 (function () {
-
-  // Calculatee XP button (will need calculator applying at some point)
-  document.getElementById('calculateXp').onclick = calculateXp;
-
   function calculateXp() {
-    document.getElementById('xpDisplay').innerHTML = 'some number';
-  };
+    document.getElementById('xpDisplay').innerHTML = 'some number  ';
+  }
+  // Calculate XP button should display 'some number' on click (will need calculator applying at some point)
+  document.getElementById('calculateXp').onclick=calculateXp;
+}) ();
 
 (function () {
   function validateStarterSetup() {
-    document.getElementById('validateCheck').innerHTML = 'check';
+    document.getElementById('validateCheck').innerHTML = 'check  ';
   }
   // Validate starter character setup should display 'check' on click (will need checks applying at some point)
   document.getElementById('validateStarterSetup').onclick=validateStarterSetup;
 }) ();
-  
-  
 
-  //pop up window to start character generation
+(function build() {
+  function testAttributes() {
+    document.getElementById('testAttributesOutput').innerHTML = physical;
+    var str=(("input[name=strength]:checked").value());
+    var dex=(("input[name=dexterity]:checked").value());
+    var sta=(("input[name=stamina]:checked").value());
+    var physical=str+dex+sta;
+  }
+  // Validate attributes setup should display 'yes/no' on click (check to make: )
+  document.getElementById('testAttributes').onclick=testAttributes;
+}) ();
+
+
+/*
+
+
+//pop up window to start character generation
   document.getElementById('build').onclick = build
 
   function build() {
@@ -81,4 +94,101 @@
 
 
 
-              }) ();
+
+
+
+
+
+
+XP Costs for Mortals Calculator
+OLD/C WORLD
+  New Ability
+    3
+  Ability Increase
+    New Rating * 2
+  Attribute Increase
+      (1st level is free as is mandatory)
+    New Rating * 4
+  Willpower
+    New Rating * 1
+  Background
+    New Rating * 3
+  Influences
+    New Rating * 1
+  Power/Aspect
+      (1st level is free as is mandatory)
+    New Rating * 8
+
+MAGE: Ascension
+  Arete = Power/Aspect
+    New Rating * 8
+  New Spere
+    10
+  Tradition Sphere
+    New Rating * 7
+  Other Sphere
+    New Rating * 8
+
+DICE ROLLS:
+  Attribute + Skill + Specialities (and other bonuses if required)
+    Success = 8, 9, 0  (Merits/flaws may modify)
+    Reroll = 10        (Merits may modify)
+    Failiure = No sucesses + 1's
+
+
+
+NEW WORLD
+  Attribute
+    New Rating * 5
+  Skill
+    New Rating * 3
+  Skill Speciality
+    3
+  Merit
+    New Rating * 2
+  Willpower
+    New Rating * 1
+      (Can only buy 'lost' dots)
+
+WERWOLF: Forsaken
+  Affinity Gift (Auspice, Common, Tribe)
+    New Rating * 5
+  Non Affinity Gift
+    New Rating * 7
+  Rituals Skill
+    New Rating * 5
+  Rites
+    New Rating * 2
+  Totem Merit
+    Per dot = 3
+  Primal Urge
+    New Rating * 8
+  Affinity Renown
+    New Rating * 6
+  Non Affinity Renown
+    New Rating * 8
+  Harmony
+    New Rating * 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+*/
+
+// 20180429 Don't forget to come back and re read and tidy code     
