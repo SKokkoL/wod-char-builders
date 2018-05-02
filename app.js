@@ -16,7 +16,7 @@
 
 (function () {
   function testAttributes() {
-    document.getElementById('testAttributesOutput').innerHTML = physicalattribute;
+    document.getElementById('testAttributesOutput').textContent = physicalattribute+socialattribute+mentalattribute;
     //get the value of the selected radio in group strength
     var str=document.querySelector('input[name="strength"]:checked').value;
     //get the value of the selected radio in group dexterity
@@ -25,13 +25,32 @@
     var sta=document.querySelector('input[name="stamina"]:checked').value;
     //add the 3 values together
     var physicalattribute = Number(str) + Number(dex) + Number(sta) ;
-    //return value as a number not a string
     console.log(physicalattribute);
-    //it prints a string where it expects a number - console prints NaN
+    
+    //get the value of the selected radio in group charisma
+    var cha=document.querySelector('input[name="charisma"]:checked').value;
+    //get the value of the selected radio in group manipulation
+    var man=document.querySelector('input[name="manipulation"]:checked').value;
+    //get the value of the selected radio in group appearance
+    var app=document.querySelector('input[name="appearance"]:checked').value;
+    //add the 3 values together
+    var socialattribute = Number(cha) + Number(man) + Number(app) ;
+    console.log(socialattribute);
+
+    //get the value of the selected radio in group perception
+    var per=document.querySelector('input[name="perception"]:checked').value;
+    //get the value of the selected radio in group intelligence
+    var int=document.querySelector('input[name="intelligence"]:checked').value;
+    //get the value of the selected radio in group wits
+    var wit=document.querySelector('input[name="wits"]:checked').value;
+    //add the 3 values together
+    var mentalattribute = Number(per) + Number(int) + Number(wit) ;
+    console.log(mentalattribute);
   }
-  // Validate attributes setup should display a a number between 0 and 12
+  // Validate attributes setup should display 3 number between 0 and 12 in console
   document.getElementById('testAttributes').onclick=testAttributes;
 }) ();
+
 
 
 /*
