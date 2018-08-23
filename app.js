@@ -16,7 +16,7 @@
 
 (function () {
   function testAttributes() {
-    document.getElementById('testAttributesOutput').textContent = physicalattribute+socialattribute+mentalattribute;
+
     //get the value of the selected radio in group strength
     var str=document.querySelector('input[name="strength"]:checked').value;
     //get the value of the selected radio in group dexterity
@@ -46,6 +46,9 @@
     //add the 3 values together
     var mentalattribute = Number(per) + Number(int) + Number(wit) ;
     console.log(mentalattribute);
+
+    document.getElementById('testAttributesOutput').textContent = physicalattribute+socialattribute+mentalattribute;
+
   }
   // Validate attributes setup should display 3 number between 0 and 12 in console
   document.getElementById('testAttributes').onclick=testAttributes;
