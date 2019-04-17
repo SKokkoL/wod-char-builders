@@ -1,0 +1,217 @@
+JavaScript
+
+Button - Guided Character Generation - On Click
+  Pop UP
+    'Welcome to the guided character generator for Werewolf: the Forsaken.
+    Please take a few moments to follow the guide and answer the questions and we will build your character.'
+
+Buttons - Begin & Cancel
+    Button - Cancel - Close the pop up.
+    Button - Begin - On Click: Clear all entries made on web page and start the following:
+
+-----
+
+'Let's start by filling in some basic info about your character'
+
+'What is your (as the player) name?' - Input text field
+'What is your characters' name?' - Input Text field
+'What is (call character name)' vice?' - Drop down menu
+'What is (call character name)' virtue?' - Drop down menu
+'What moon did your (call character name) change under?'
+'Does (call character name) belong to a tribe?' Yes / No
+    if Yes
+        Call list of tribes Blood Talons/Bone Shadows/Hunters in Darkness/Iron Masters/Storm Lords with radio select
+    else
+        Select Ghost wolf
+
+Button - Next part - on click input answers into character sheet and then,
+
+-----
+
+Now let's sort out your attributes:
+
+Which out of the attribute groups are you best at, and which are you worst at?:
+
+                                                        Best   Worst
+      Mental - Intelligence, Wits and Resolve: -        (  )   (  )
+      Physical - Strength, Dexterity and Stamina: -     (  )   (  )
+      Social - Presence, Manipulation and Composure: -  (  )   (  )
+
+Now add 5 points to your best attribute set and 3 points to your worst set, to the remaining set add 4 points.
+
+         MENTAL         PHYSICAL           SOCIAL
+
+      Intelligence      Strength          Presence
+         1+[] =          1+[] =            1+[] =
+          Wits          Dexterity       Manipulation
+         1+[] =          1+[] =            1+[] =
+        Resolve          Stamina          Composure
+         1+[] =          1+[] =            1+[] =
+
+          **CHECK** In the point spend section, check each column adds up to 5, 4 and 3
+                - one column to add up to each number AND column chosen as best adds up to 5 and column  chosen as worst adds up to 3
+            IF TRUE then un-gray Button
+
+Button - Next part - on click input answers into character sheet and then,
+
+-----
+
+Now let's sort out your attributes:
+
+Which out of the attribute groups are you best at, and which are you worst at?:
+
+                                            Best   Worst
+      Mental - On hover list skills: -      (  )   (  )
+      Physical - On hover list skills: -    (  )   (  )
+      Social - On hover list skills: -      (  )   (  )
+
+Now add 11 points to your best attribute set and 4 points to your worst set, to the remaining set add 7 points.
+
+         MENTAL             PHYSICAL            SOCIAL
+
+      Mental Skill 1    Physical Skill 1    Social Skill 1
+         1+[] =              1+[] =             1+[] =
+      Mental Skill 2    Physical Skill 2    Social Skill 2
+         1+[] =              1+[] =             1+[] =
+      Mental Skill 3    Physical Skill 3    Social Skill 3
+         1+[] =              1+[] =             1+[] =
+         ***REPEAT TO COVER ALL SKILLS***
+
+          **CHECK** In the point spend section, check each column adds up to 11, 7 and 4
+                - one column to add up to each number AND column chosen as best adds up to 11 and column  chosen as worst adds up to 4
+
+      Choose 3 skills to have a speciality in, then choose 1 word to describe that speciality,
+            For example you choose Firearms and specialise in pistols:
+
+            Mental                                Specialise?
+        Trained Mental Skill 1 - Skill Value []     - [] - if YES then - Text entry field
+        Trained Mental Skill 2 - Skill Value []     - [] - if YES then - Text entry field
+
+           Physical                               Specialise?
+        Trained Physical Skill 1 - Skill Value []   - [] - if YES then - Text entry field
+        Trained Physical Skill 2 - Skill Value []   - [] - if YES then - Text entry field
+
+            Social                                Specialise?
+        Trained Social Skill 1 - Skill Value []     - [] - if YES then - Text entry field
+        Trained Social Skill 2 - Skill Value []     - [] - if YES then - Text entry field
+          **CHECK** Only 3 check marks
+
+      Choose your auspice skill speciality:
+
+        You are (call Auspice), choose a speciality from one of the skills below:
+
+                                                    Specialise?
+        Auspice skill 1 if trained - Skill Value []    - [] - if YES then - Text entry field
+        Auspice skill 2 if trained - Skill Value []    - [] - if YES then - Text entry field
+        Auspice skill 3 if trained - Skill Value []    - [] - if YES then - Text entry field
+          **CHECK** Only 1 check mark
+
+    IF ALL CHECKS ARE TRUE
+            then un-gray Button
+
+Button - Next part - on click input answers into character sheet and then,
+
+-----
+
+  Now you have 7 points to spend on merits.
+  You may gain additional merit points by taking flaws.
+  You may chose to spend merit points to gain points in skills or attributes.
+  No skill or attribute may go above 5 and purchasing the 5th dot requires an additional merit point.
+
+  Merits:
+    [choose one drop down] is one is selected display Value [] and next drop down.
+
+
+  Boost Attributes? Yes[] - if yes display attributes 'table'
+
+        MENTAL          PHYSICAL           SOCIAL
+
+      Intelligence      Strength          Presence
+          1+[] =          1+[] =            1+[] =
+           Wits          Dexterity       Manipulation
+          1+[] =          1+[] =            1+[] =
+          Resolve        Stamina          Composure
+          1+[] =          1+[] =            1+[] =
+
+
+  Boost Skills? Yes[] if yes display skills 'table'
+
+           MENTAL             PHYSICAL            SOCIAL
+
+        Mental Skill 1    Physical Skill 1    Social Skill 1
+           1+[] =              1+[] =             1+[] =
+        Mental Skill 2    Physical Skill 2    Social Skill 2
+           1+[] =              1+[] =             1+[] =
+        Mental Skill 3    Physical Skill 3    Social Skill 3
+           1+[] =              1+[] =             1+[] =
+           ***REPEAT TO COVER ALL SKILLS***
+
+ Flaws:
+   [choose one drop down] is one is selected display Value [] and next drop down.
+
+   **CHECK**   Value of spent merit points - value of flaw points =  =<7  is so TRUE
+   IF CHECK IS TRUE
+   then un-gray Button
+
+Button - Next part - on click input answers into character sheet and then,
+
+-----
+
+Populate the stats of
+
+Size:        =5
+Defence:     Lowest of Wits or Dexterity
+initiative:  Total of Dexterity + Composure
+Speed:       Total of Strength + Dexterity + 5
+Amour:       'blank'
+Perception:  Total of Wits + Composure
+
+Thank you, your character is ready.
+Have fun playing.
+
+
+Experience points cost
+
+Attribute	                   New Dots x 5
+Skill	                       New Dots x 3
+Skill Specialty	             3
+Merit	                       New Dots x 2
+Willpower*	                 8
+Affinity Gift           	   New Dots x 5
+(Auspice, Common, or Tribe)
+Other Gift	                 New Dots x 7
+Rituals                      New Dots x 5
+Rite	                       New Dots x 2
+Totem Merit	                 3 per Dot
+Primal Urge	                 New Dots x 8
+Primary Renown	             New Dots x 6
+(Auspice, Tribe)
+Other Renown	               New Dots x 8
+Harmony	                     New Dots x 3
+
+
+Auspice, renown, skills and gifts
+Auspice / Moon	          Renown	  Skill 1	      Skill 2	        Skill 3	     Gift 1	         Gift 2	        Gift 3
+Rahu (Full Moon)        	Purity	  Brawl	        Intimidation	  Survival	   Full Moon	     Dominance	    Strength
+Cahalith (Gibbous Moon) 	Glory     Crafts	      Expression	    Persuasion	 Gibbous Moon	   Inspiration	  Knowledge
+Elodoth (Half Moon)     	Honor	    Empathy	      Investigation	  Politics	   Half Moon	     Insight	      Warding
+Ithaeur (Crescent Moon) 	Wisdom	  Animal Ken	  Medicine      	Occult	     Crescent Moon   Elemental	    Shaping
+Irraka (New Moon)       	Cunning	  Larceny	      Stealth       	Subterfuge	 New Moon	       Evasion	      Stealth
+
+
+Tribe, renown, gifts
+Tribe	                Renown				Gift 1	      Gift 2	      Gift 3
+Blood Talons	        Glory			  	Inspiration 	Rage	        Strength
+Bone Shadows        	Wisdom				Death        	Insight      	Warding
+Hunters in Darkness 	Purity				Elemental    	Nature	      Stealth
+Iron Masters        	Cunning				Knowledge   	Shaping      	Technology
+Storm Lords         	Honor			  	Dominance   	Evasion      	Weather
+Ghost Wolves        	None
+
+Shapeshift forms -
+Hishu
+Dalu -    Induces Lunacy; Observers have a 4-die bonus to their Willpower to resist
+Gauru -   Rage Invoked. Induces Full Lunacy. Wound Penalties ignored and no unconsciouness rolls made. -2 to resist Death Rage
+          Inflict +2 Lethal Damage with bite attack & +1 Lethal Damage with claw attack. Fail most Mental and Social Rolls
+Urshul -  Induces Lunacy; Observers have a 2-die bonus to their Willpower to resist. Inflict +2 Lethal Damage with bite attack
+Urhan -   Inflict +2 Lethal Damage with bite attack.

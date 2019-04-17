@@ -12,105 +12,119 @@
 </head>
 
 <body>
-  <h1>WORLD OF DARKNESS</h1>
-  <p>Character Sheet Generator, XP value calculator and spend tracker</p>
-
-  <div>
-    <div>
-      <button id="calculateXp">Calculate XP Value Button</button> 
-      <!-- 20180308 Currently returns: "Some Number", need to write and apply calculator -->
-      <button id="validateStarterSetup">Validate Starter Setup</button> 
-      <!-- 20180308 Need the JS for this  20180429 JS does not work -->
-      <button id="randomStarterAssignment">Generate Random Starter Character</button> 
-      <!-- 20180308 Need to JS this too -->
-      <button id="testAttributes">Test Attributes</button> 
+  <div class="pageWideSectional">
+  <div class="description">
+    <div class="icon">
+<!-- Icon for game type goes here -->
     </div>
     <div>
-      XP Value:  
+    <h1>WORLD OF DARKNESS</h1>
+    <p>Character Sheet Generator<br>XP value calculator and spend tracker</p>
+    </div>
+    <div class="icon">
+<!-- Icon for game type goes here -->
+    </div>
+  </div>  
+  </div>
+
+  <div class="pageWideSectional">
+    <div>
+      <button id="calculateXp">Calculate XP Value Button</button>
+      <!-- 20190327 Currently returns: "Some parseInt", need to write and apply calculator -->
+      <button id="validateStarterSetup">Validate Starter Setup</button>
+      <!-- 20190327 Currently returns: "Check"-->
+      <button id="randomStarterAssignment">Generate Random Starter Character</button>
+      <!-- 20180308 Need to JS this too -->
+      <button id="testAttributes">Test Attributes</button>
+      <!--  Gusee what? Write JS-->
+    </div>
+    <div>
+      XP Value:
       <span id="xpDisplay"></span>
-      Valid Starter Character:  
+      Valid Starter Character:
       <span id="validateCheck"></span>
-      Are Attributes valid?:  
+      Are Attributes valid?:
       <span id="testAttributesOutput"></span>
     </div>
 
+    <div class="description">
+        <ul>
+          <li>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Character Name">
+          </li>
+          <li>
+            <label for="age">Age:</label>
+            <input type="text" name="age" id="age" placeholder="Character's Age">
+          </li>
+          <li>
+            <label for="player">Player:</label>
+            <input type="text" name="player" id="player" placeholder="Your Name">
+          </li>
+        </ul>
+    
+        <ul>
+          <li>
+            Virtue:
+            <br>
+            <select id="Virtue">
+              <option value="ChooseOne">Choose One</option>
+              <option value="Chastity">Chastity</option>
+              <option value="Temperance">Temperance</option>
+              <option value="Charity">Charity</option>
+              <option value="Diligence">Diligence</option>
+              <option value="Patience">Patience</option>
+              <option value="Kindness">Kindness</option>
+              <option value="Humility">Humility</option>
+            </select>
+          </li>
+          <li>
+            Vice:
+            <br>
+            <select id="Vice">
+              <option value="ChooseOne">Choose One</option>
+              <option value="Lust">Lust</option>
+              <option value="Gluttony">Gluttony</option>
+              <option value="Greed">Greed</option>
+              <option value="Sloth">Sloth</option>
+              <option value="Wrath">Wrath</option>
+              <option value="Envy">Envy</option>
+              <option value="Pride">Pride</option>
+            </select>
+          </li>
+          <li>
+            <label for="concept">Concept:</label>
+            <input type="text" name="concept" id="concept" placeholder="What inspired this character creation?">
+          </li>
+        </ul>
+    
+        <ul>
+          <li>
+            <label for="chronicle">Chronicle:</label>
+            <input type="text" name="chronicle" id="chronicle" placeholder="The ST story title">
+          </li>
+          <li>
+            <label for="faction">Faction:</label>
+            <input type="text" name="faction" id="faction">
+          </li>
+          <li>
+            <label for="groupName">Group Name:</label>
+            <input type="text" name="groupName" id="groupName">
+          </li>
+        </ul>
+      </div>
+
   </div>
 
-  <div class="description">
-    <ul>
-      <li>
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" placeholder="Character Name">
-      </li>
-      <li>
-        <label for="age">Age:</label>
-        <input type="text" name="age" id="age" placeholder="Character's Age">
-      </li>
-      <li>
-        <label for="player">Player:</label>
-        <input type="text" name="player" id="player" placeholder="Your Name">
-      </li>
-    </ul>
-
-    <ul>
-      <li>
-        Virtue:
-        <br>
-        <select id="Virtue">
-          <option value="ChooseOne">Choose One</option>
-          <option value="Chastity">Chastity</option>
-          <option value="Temperance">Temperance</option>
-          <option value="Charity">Charity</option>
-          <option value="Diligence">Diligence</option>
-          <option value="Patience">Patience</option>
-          <option value="Kindness">Kindness</option>
-          <option value="Humility">Humility</option>
-        </select>
-      </li>
-      <li>
-        Vice:
-        <br>
-        <select id="Vice">
-          <option value="ChooseOne">Choose One</option>
-          <option value="Lust">Lust</option>
-          <option value="Gluttony">Gluttony</option>
-          <option value="Greed">Greed</option>
-          <option value="Sloth">Sloth</option>
-          <option value="Wrath">Wrath</option>
-          <option value="Envy">Envy</option>
-          <option value="Pride">Pride</option>
-        </select>
-      </li>
-      <li>
-        <label for="concept">Concept:</label>
-        <input type="text" name="concept" id="concept" placeholder="What inspired this character creation?">
-      </li>
-    </ul>
-
-    <ul>
-      <li>
-        <label for="chronicle">Chronicle:</label>
-        <input type="text" name="chronicle" id="chronicle" placeholder="The ST story title">
-      </li>
-      <li>
-        <label for="faction">Faction:</label>
-        <input type="text" name="faction" id="faction">
-      </li>
-      <li>
-        <label for="groupName">Group Name:</label>
-        <input type="text" name="groupName" id="groupName">
-      </li>
-    </ul>
-  </div>
-
-  <div>
+  <div class="pageWideSectional">
     <h2>ATTRIBUTES</h2>
     <div class="attributes-wrapper">
-      <div class="attributes"> <!-- Physical -->
+      <div class="attributes">
+        <!-- Physical -->
         <h3>PHYSICAL</h3>
         <ul>
           <li>
-            <div class="statsBox container">
+            <div class="statsBox">
               <div>
                 <label for="strengthSpecialisation">Strength:</label>
               </div>
@@ -159,7 +173,8 @@
         </ul>
       </div>
 
-      <div class="attributes"> <!-- Social -->
+      <div class="attributes">
+        <!-- Social -->
         <h3>SOCIAL</h3>
         <ul>
           <li>
@@ -212,7 +227,8 @@
         </ul>
       </div>
 
-      <div class="attributes"> <!-- Mental -->
+      <div class="attributes">
+        <!-- Mental -->
         <h3>MENTAL</h3>
         <ul>
           <li>
@@ -267,11 +283,12 @@
     </div>
   </div>
 
-  <div>
+  <div class="pageWideSectional">
     <h2>ABILITIES</h2>
 
     <div class="abilities-wrapper">
-      <div class="abilities"> <!-- Talents -->
+      <div class="abilities">
+        <!-- Talents -->
         <h3>TALENTS</h3>
         <ul>
           <li>
@@ -457,7 +474,8 @@
         </ul>
       </div>
 
-      <div class="abilities"> <!-- Skills -->
+      <div class="abilities">
+        <!-- Skills -->
         <h3>SKILLS</h3>
         <ul>
           <li>
@@ -643,7 +661,8 @@
         </ul>
       </div>
 
-      <div class="abilities"> <!-- Knowledges -->
+      <div class="abilities">
+        <!-- Knowledges -->
         <h3>KNOWLEDGES</h3>
         <ul>
           <li>
@@ -831,414 +850,491 @@
     </div>
   </div>
 
-  <div>
-    <h2>ADVANTAGES</h2>
-    <div class="advantages-wrapper">
-      <div class="advantages">
-        <ul> <!-- Merits -->
-          <h3>MERITS</h3>
-          <li>
-            <div class='inline' name="merit1">
-              <div>
-                <input type="checkbox" name="merit1" id="merit1value1">
-                <input type="checkbox" name="merit1" id="merit1value2">
-                <input type="checkbox" name="merit1" id="merit1value3">
-                <input type="checkbox" name="merit1" id="merit1value4">
-                <input type="checkbox" name="merit1" id="merit1value5">
+  <div class="pageWideSectional">
+      <h2>ADVANTAGES</h2>
+      <div class="attributes-wrapper">
+        <div class="merit">
+          <ul>
+              <!-- Merits -->
+              <h3>MERITS</h3>
+              <li>
+                <div class='inline' name="merit1">
+                  <div>
+                    <input type="checkbox" name="merit1" id="merit1value1">
+                    <input type="checkbox" name="merit1" id="merit1value2">
+                    <input type="checkbox" name="merit1" id="merit1value3">
+                    <input type="checkbox" name="merit1" id="merit1value4">
+                    <input type="checkbox" name="merit1" id="merit1value5">
+                  </div>
+                </div>
+                <div class='inline'>
+                  <div>
+                    <input list="Merit-List" id="meritList" name="meritList" />
+                    <datalist id="Merit-List">
+                      <option value="Striking Looks (2)">
+                        <option value="Striking Looks (4)">
+                          <option value="Quick Witted">
+                            <option value="Ambidextrous">
+                    </datalist>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class='inline' name="merit2">
+                  <div>
+                    <input type="checkbox" name="merit2" id="merit2value1">
+                    <input type="checkbox" name="merit2" id="merit2value2">
+                    <input type="checkbox" name="merit2" id="merit2value3">
+                    <input type="checkbox" name="merit2" id="merit2value4">
+                    <input type="checkbox" name="merit2" id="merit2value5">
+                  </div>
+                </div>
+                <div class='inline'>
+                  <div>
+                    <input list="Merit-List" id="meritList" name="meritList" />
+                    <datalist id="Merit-List">
+                      <option value="Striking Looks (2)">
+                        <option value="Striking Looks (4)">
+                          <option value="Quick Witted">
+                            <option value="Ambidextrous">
+                    </datalist>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class='inline' name="merit3">
+                  <div>
+                    <input type="checkbox" name="merit3" id="merit3value1">
+                    <input type="checkbox" name="merit3" id="merit3value2">
+                    <input type="checkbox" name="merit3" id="merit3value3">
+                    <input type="checkbox" name="merit3" id="merit3value4">
+                    <input type="checkbox" name="merit3" id="merit3value5">
+                  </div>
+                </div>
+                <div class='inline'>
+                  <div>
+                    <input list="Merit-List" id="meritList" name="meritList" />
+                    <datalist id="Merit-List">
+                      <option value="Striking Looks (2)">
+                        <option value="Striking Looks (4)">
+                          <option value="Quick Witted">
+                            <option value="Ambidextrous">
+                    </datalist>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class='inline' name="merit4">
+                  <div>
+                    <input type="checkbox" name="merit4" id="merit4value1">
+                    <input type="checkbox" name="merit4" id="merit4value2">
+                    <input type="checkbox" name="merit4" id="merit4value3">
+                    <input type="checkbox" name="merit4" id="merit4value4">
+                    <input type="checkbox" name="merit4" id="merit4value5">
+                  </div>
+                </div>
+                <div class='inline'>
+                  <div>
+                    <input list="Merit-List" id="meritList" name="meritList" />
+                    <datalist id="Merit-List">
+                      <option value="Striking Looks (2)">
+                        <option value="Striking Looks (4)">
+                          <option value="Quick Witted">
+                            <option value="Ambidextrous">
+                    </datalist>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class='inline' name="merit5">
+                  <div>
+                    <input type="checkbox" name="merit5" id="merit5value1">
+                    <input type="checkbox" name="merit5" id="merit5value2">
+                    <input type="checkbox" name="merit5" id="merit5value3">
+                    <input type="checkbox" name="merit5" id="merit5value4">
+                    <input type="checkbox" name="merit5" id="merit5value5">
+                  </div>
+                </div>
+                <div class='inline'>
+                  <div>
+                    <input list="Merit-List" id="meritList" name="meritList" />
+                    <datalist id="Merit-List">
+                      <option value="Striking Looks (2)">
+                        <option value="Striking Looks (4)">
+                          <option value="Quick Witted">
+                            <option value="Ambidextrous">
+                    </datalist>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class='inline' name="merit6">
+                  <div>
+                    <input type="checkbox" name="merit6" id="merit6value1">
+                    <input type="checkbox" name="merit6" id="merit6value2">
+                    <input type="checkbox" name="merit6" id="merit6value3">
+                    <input type="checkbox" name="merit6" id="merit6value4">
+                    <input type="checkbox" name="merit6" id="merit6value5">
+                  </div>
+                </div>
+                <div class='inline'>
+                  <div>
+                    <input list="Merit-List" id="meritList" name="meritList" />
+                    <datalist id="Merit-List">
+                      <option value="Striking Looks (2)">
+                        <option value="Striking Looks (4)">
+                          <option value="Quick Witted">
+                            <option value="Ambidextrous">
+                    </datalist>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul>
+                <!-- Flaws -->
+                <h3>FLAWS</h3>
+                <li>
+                  <div class='inline' name="flaw1">
+                    <div>
+                      <input type="checkbox" name="flaw1" id="flaw1value1">
+                      <input type="checkbox" name="flaw1" id="flaw1value2">
+                      <input type="checkbox" name="flaw1" id="flaw1value3">
+                      <input type="checkbox" name="flaw1" id="flaw1value4">
+                      <input type="checkbox" name="flaw1" id="flaw1value5">
+                    </div>
+                  </div>
+                  <div class='inline'>
+                    <div>
+                      <input list="Flaw-List" id="flawList" name="flawList" />
+                      <datalist id="Flaw-List">
+                        <option value="One Eyed">
+                          <option value="One Arm">
+                            <option value="Naive">
+                              <option value="Allergic">
+                      </datalist>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class='inline' name="flaw2">
+                    <div>
+                      <input type="checkbox" name="flaw2" id="flaw2value1">
+                      <input type="checkbox" name="flaw2" id="flaw2value2">
+                      <input type="checkbox" name="flaw2" id="flaw2value3">
+                      <input type="checkbox" name="flaw2" id="flaw2value4">
+                      <input type="checkbox" name="flaw2" id="flaw2value5">
+                    </div>
+                  </div>
+                  <div class='inline'>
+                    <div>
+                      <input list="Flaw-List" id="flawList" name="flawList" />
+                      <datalist id="Flaw-List">
+                        <option value="One Eyed">
+                          <option value="One Arm">
+                            <option value="Naive">
+                              <option value="Allergic">
+                      </datalist>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class='inline' name="flaw3">
+                    <div>
+                      <input type="checkbox" name="flaw3" id="flaw3value1">
+                      <input type="checkbox" name="flaw3" id="flaw3value2">
+                      <input type="checkbox" name="flaw3" id="flaw3value3">
+                      <input type="checkbox" name="flaw3" id="flaw3value4">
+                      <input type="checkbox" name="flaw3" id="flaw3value5">
+                    </div>
+                  </div>
+                  <div class='inline'>
+                    <div>
+                      <input list="Flaw-List" id="flawList" name="flawList" />
+                      <datalist id="Flaw-List">
+                        <option value="One Eyed">
+                          <option value="One Arm">
+                            <option value="Naive">
+                              <option value="Allergic">
+                      </datalist>
+                    </div>
+                    </select>
+                </li>
+                <li>
+                  <div class='inline' name="flaw4">
+                    <div>
+                      <input type="checkbox" name="flaw4" id="flaw4value1">
+                      <input type="checkbox" name="flaw4" id="flaw4value2">
+                      <input type="checkbox" name="flaw4" id="flaw4value3">
+                      <input type="checkbox" name="flaw4" id="flaw4value4">
+                      <input type="checkbox" name="flaw4" id="flaw4value5">
+                    </div>
+                  </div>
+                  <div class='inline'>
+                    <div>
+                      <input list="Flaw-List" id="flawList" name="flawList" />
+                      <datalist id="Flaw-List">
+                        <option value="One Eyed">
+                          <option value="One Arm">
+                            <option value="Naive">
+                              <option value="Allergic">
+                      </datalist>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class='inline' name="flaw5">
+                    <div>
+                      <input type="checkbox" name="flaw5" id="flaw5value1">
+                      <input type="checkbox" name="flaw5" id="flaw5value2">
+                      <input type="checkbox" name="flaw5" id="flaw5value3">
+                      <input type="checkbox" name="flaw5" id="flaw5value4">
+                      <input type="checkbox" name="flaw5" id="flaw5value5">
+                    </div>
+                  </div>
+                  <div class='inline'>
+                    <div>
+                      <input list="Flaw-List" id="flawList" name="flawList" />
+                      <datalist id="Flaw-List">
+                        <option value="One Eyed">
+                          <option value="One Arm">
+                            <option value="Naive">
+                              <option value="Allergic">
+                      </datalist>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class='inline' name="flaw6">
+                    <div>
+                      <input type="checkbox" name="flaw6" id="flaw6value1">
+                      <input type="checkbox" name="flaw6" id="flaw6value2">
+                      <input type="checkbox" name="flaw6" id="flaw6value3">
+                      <input type="checkbox" name="flaw6" id="flaw6value4">
+                      <input type="checkbox" name="flaw6" id="flaw6value5">
+                    </div>
+                  </div>
+                  <div class='inline'>
+                    <div>
+                      <input list="Flaw-List" id="flawList" name="flawList" />
+                      <datalist id="Flaw-List">
+                        <option value="One Eyed">
+                          <option value="One Arm">
+                            <option value="Naive">
+                              <option value="Allergic">
+                      </datalist>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+        </div>
+  
+        <div class="aspect">
+            <ul>
+                <h3>VIRTUES</h3>
+                <li>
+                  <div class="statsBox">
+                    <div>
+                      Conscience:
+                    </div>
+                    <div>
+                      <input type="checkbox" name="conscience" id="conscience1" checked>
+                      <input type="checkbox" name="conscience" id="conscience2">
+                      <input type="checkbox" name="conscience" id="conscience3">
+                      <input type="checkbox" name="conscience" id="conscience4">
+                      <input type="checkbox" name="conscience" id="conscience5">
+                    </div>
+                  </div>
+                  <input type="text" name="conscienceSpecialisation" id="conscienceSpecialisation">
+                </li>
+                <li>
+                  <div class="statsBox">
+                    <div>
+                      Self-Control:
+                    </div>
+                    <div>
+                      <input type="checkbox" name="selfControl" id="selfControl1" checked>
+                      <input type="checkbox" name="selfControl" id="selfControl2">
+                      <input type="checkbox" name="selfControl" id="selfControl3">
+                      <input type="checkbox" name="selfControl" id="selfControl4">
+                      <input type="checkbox" name="selfControl" id="selfControl5">
+                    </div>
+                  </div>
+                  <input type="text" name="selfControlSpecialisation" id="selfControlSpecialisation">
+                </li>
+                <li>
+                  <div class="statsBox">
+                    <div>
+                      Courage:
+                    </div>
+                    <div>
+                      <input type="checkbox" name="courage" id="courage1" checked>
+                      <input type="checkbox" name="courage" id="courage2">
+                      <input type="checkbox" name="courage" id="courage3">
+                      <input type="checkbox" name="courage" id="courage4">
+                      <input type="checkbox" name="courage" id="courage5">
+                    </div>
+                  </div>
+                  <input type="text" name="courageSpecialisation" id="courageSpecialisation">
+                </li>
+              </ul>
+              <ul class="humanity">
+                  <h3>HUMANITY</h3>
+                  <li>
+                    <input type="checkbox" name="humanity" id="humanity1">
+                    <input type="checkbox" name="humanity" id="humanity2">
+                    <input type="checkbox" name="humanity" id="humanity3">
+                    <input type="checkbox" name="humanity" id="humanity4">
+                    <input type="checkbox" name="humanity" id="humanity5">
+                    <input type="checkbox" name="humanity" id="humanity6">
+                    <input type="checkbox" name="humanity" id="humanity7">
+                    <input type="checkbox" name="humanity" id="humanity8">
+                    <input type="checkbox" name="humanity" id="humanity9">
+                    <input type="checkbox" name="humanity" id="humanity10">
+                  </li>
+                </ul>
+                <ul class="willpower">
+                  <h3>WILLPOWER</h3>
+                  <li align-content: center>
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower1">
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower2">
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower3">
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower4">
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower5">
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower6">
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower7">
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower8">
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower9">
+                    <input type="checkbox" name="permenantWillpower" id="permenantWillpower10">
+                  </li>
+                  <li>
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower1" value="1">
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower2" value="2">
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower3" value="3">
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower4" value="4">
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower5" value="5">
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower6" value="6">
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower7" value="7">
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower8" value="8">
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower9" value="9">
+                    <input type="checkbox" name="currentWillpower" id="currentWillpower10" value="10">
+                  </li>
+                  <!-- You cannot have more temporary Willpower than permenant -->
+                </ul>
+        </div>
+        <div class="health">
+            <h3>HEALTH</h3>
+            <br>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Bruised :
+                </div>
+                <div>
+                  <input type="checkbox" name="bruisedHealth" id="bruisedHealth">
+                </div>
               </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="merit1select" name="merit1select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
+            </li>
+            <br>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Hurt -1 :
+                </div>
+                <div>
+                  <input type="checkbox" name="hurtHealth" id="hurtHealth">
+                </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div class='inline'  name="merit2">
-              <div>
-                <input type="checkbox" name="merit2" id="merit2value1">
-                <input type="checkbox" name="merit2" id="merit2value2">
-                <input type="checkbox" name="merit2" id="merit2value3">
-                <input type="checkbox" name="merit2" id="merit2value4">
-                <input type="checkbox" name="merit2" id="merit2value5">
+            </li>
+            <br>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Injured -1 :
+                </div>
+                <div>
+                  <input type="checkbox" name="injuredHealth" id="injuredHealth">
+                </div>
               </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="merit2select" name="merit2select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
+            </li>
+            <br>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Wounded -2 :
+                </div>
+                <div>
+                  <input type="checkbox" name="woundedHealth" id="woundedHealth">
+                </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div class='inline' name="merit3">
-              <div>
-                <input type="checkbox" name="merit3" id="merit3value1">
-                <input type="checkbox" name="merit3" id="merit3value2">
-                <input type="checkbox" name="merit3" id="merit3value3">
-                <input type="checkbox" name="merit3" id="merit3value4">
-                <input type="checkbox" name="merit3" id="merit3value5">
+            </li>
+            <br>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Mauled -2 :
+                </div>
+                <div>
+                  <input type="checkbox" name="mauledHealth" id="mauledHealth">
+                </div>
               </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="merit3select" name="merit3select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
+            </li>
+            <br>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Crippled -5 :
+                </div>
+                <div>
+                  <input type="checkbox" name="crippledHealth" id="crippledHealth">
+                </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div class='inline' name="merit4">
-              <div>
-                <input type="checkbox" name="merit4" id="merit4value1">
-                <input type="checkbox" name="merit4" id="merit4value2">
-                <input type="checkbox" name="merit4" id="merit4value3">
-                <input type="checkbox" name="merit4" id="merit4value4">
-                <input type="checkbox" name="merit4" id="merit4value5">
+            </li>
+            <br>
+            <li>
+              <div class="statsBox">
+                <div>
+                  Incapacitated :
+                </div>
+                <div>
+                  <input type="checkbox" name="incapacitatedHealth" id="incapacitatedHealth">
+                </div>
               </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="merit4select" name="merit4select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class='inline' name="merit5">
-              <div>
-                <input type="checkbox" name="merit5" id="merit5value1">
-                <input type="checkbox" name="merit5" id="merit5value2">
-                <input type="checkbox" name="merit5" id="merit5value3">
-                <input type="checkbox" name="merit5" id="merit5value4">
-                <input type="checkbox" name="merit5" id="merit5value5">
-              </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="merit5select" name="merit5select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class='inline' name="merit6">
-              <div>
-                <input type="checkbox" name="merit6" id="merit6value1">
-                <input type="checkbox" name="merit6" id="merit6value2">
-                <input type="checkbox" name="merit6" id="merit6value3">
-                <input type="checkbox" name="merit6" id="merit6value4">
-                <input type="checkbox" name="merit6" id="merit6value5">
-              </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="merit6select" name="merit6select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <ul> <!-- Flaws -->
-          <h3>FLAWS</h3>
-          <li>
-            <div class='inline' name="flaw1">
-              <div>
-                <input type="checkbox" name="flaw1" id="flaw1value1">
-                <input type="checkbox" name="flaw1" id="flaw1value2">
-                <input type="checkbox" name="flaw1" id="flaw1value3">
-                <input type="checkbox" name="flaw1" id="flaw1value4">
-                <input type="checkbox" name="flaw1" id="flaw1value5">
-              </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="flaw1select" name="flaw1select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class='inline' name="flaw2">
-              <div>
-                <input type="checkbox" name="flaw2" id="flaw2value1">
-                <input type="checkbox" name="flaw2" id="flaw2value2">
-                <input type="checkbox" name="flaw2" id="flaw2value3">
-                <input type="checkbox" name="flaw2" id="flaw2value4">
-                <input type="checkbox" name="flaw2" id="flaw2value5">
-              </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="flaw2select" name="flaw2select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class='inline'  name="flaw3">
-              <div>
-                <input type="checkbox" name="flaw3" id="flaw3value1">
-                <input type="checkbox" name="flaw3" id="flaw3value2">
-                <input type="checkbox" name="flaw3" id="flaw3value3">
-                <input type="checkbox" name="flaw3" id="flaw3value4">
-                <input type="checkbox" name="flaw3" id="flaw3value5">
-              </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="flaw3select" name="flaw3select">
-                  <option value="ChooseOne">Choose One</option>
-              </div>
-            </div>
-            </select>
-          </li>
-          <li>
-            <div class='inline' name="flaw4">
-              <div>
-                <input type="checkbox" name="flaw4" id="flaw4value1">
-                <input type="checkbox" name="flaw4" id="flaw4value2">
-                <input type="checkbox" name="flaw4" id="flaw4value3">
-                <input type="checkbox" name="flaw4" id="flaw4value4">
-                <input type="checkbox" name="flaw4" id="flaw4value5">
-              </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="flaw4select" name="flaw4select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class='inline' name="flaw5">
-              <div>
-                <input type="checkbox" name="flaw5" id="flaw5value1">
-                <input type="checkbox" name="flaw5" id="flaw5value2">
-                <input type="checkbox" name="flaw5" id="flaw5value3">
-                <input type="checkbox" name="flaw5" id="flaw5value4">
-                <input type="checkbox" name="flaw5" id="flaw5value5">
-              </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="flaw5select" name="flaw5select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class='inline' name="flaw6">
-              <div>
-                <input type="checkbox" name="flaw6" id="flaw6value1">
-                <input type="checkbox" name="flaw6" id="flaw6value2">
-                <input type="checkbox" name="flaw6" id="flaw6value3">
-                <input type="checkbox" name="flaw6" id="flaw6value4">
-                <input type="checkbox" name="flaw6" id="flaw6value5">
-              </div>
-            </div>
-            <div class='inline'>
-              <div>
-                <select id="flaw6select" name="flaw6select">
-                  <option value="ChooseOne">Choose One</option>
-                </select>
-              </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+        </div>
       </div>
-
-      <div class="advantages">
-        <ul>
-          <h3>VIRTUES</h3>
-          <li>
-            <div class="statsBox">
-              <div>
-                Conscience:
-              </div>
-              <div>
-                <input type="checkbox" name="conscience" id="conscience1" checked>
-                <input type="checkbox" name="conscience" id="conscience2">
-                <input type="checkbox" name="conscience" id="conscience3">
-                <input type="checkbox" name="conscience" id="conscience4">
-                <input type="checkbox" name="conscience" id="conscience5">
-              </div>
-            </div>
-            <input type="text" name="conscienceSpecialisation" id="conscienceSpecialisation">
-          </li>
-          <li>
-            <div class="statsBox">
-              <div>
-                Self-Control:
-              </div>
-              <div>
-                <input type="checkbox" name="selfControl" id="selfControl1" checked>
-                <input type="checkbox" name="selfControl" id="selfControl2">
-                <input type="checkbox" name="selfControl" id="selfControl3">
-                <input type="checkbox" name="selfControl" id="selfControl4">
-                <input type="checkbox" name="selfControl" id="selfControl5">
-              </div>
-            </div>
-            <input type="text" name="selfControlSpecialisation" id="selfControlSpecialisation">
-          </li>
-          <li>
-            <div class="statsBox">
-              <div>
-                Courage:
-              </div>
-              <div>
-                <input type="checkbox" name="courage" id="courage1" checked>
-                <input type="checkbox" name="courage" id="courage2">
-                <input type="checkbox" name="courage" id="courage3">
-                <input type="checkbox" name="courage" id="courage4">
-                <input type="checkbox" name="courage" id="courage5">
-              </div>
-            </div>
-            <input type="text" name="courageSpecialisation" id="courageSpecialisation">
-          </li>
-        </ul>
-
-        <ul class="humanity">
-          <h3>HUMANITY</h3>
-          <li>
-            <input type="checkbox" name="humanity" id="humanity1">
-            <input type="checkbox" name="humanity" id="humanity2">
-            <input type="checkbox" name="humanity" id="humanity3">
-            <input type="checkbox" name="humanity" id="humanity4">
-            <input type="checkbox" name="humanity" id="humanity5">
-            <input type="checkbox" name="humanity" id="humanity6">
-            <input type="checkbox" name="humanity" id="humanity7">
-            <input type="checkbox" name="humanity" id="humanity8">
-            <input type="checkbox" name="humanity" id="humanity9">
-            <input type="checkbox" name="humanity" id="humanity10">
-          </li>
-        </ul>
-
-        <ul class="willpower">
-          <h3>WILLPOWER</h3>
-          <li align-content: center>
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower1">
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower2">
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower3">
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower4">
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower5">
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower6">
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower7">
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower8">
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower9">
-            <input type="checkbox" name="permenantWillpower" id="permenantWillpower10">
-          </li>
-          <li>
-            <input type="checkbox" name="currentWillpower" id="currentWillpower1" value="1">
-            <input type="checkbox" name="currentWillpower" id="currentWillpower2" value="2">
-            <input type="checkbox" name="currentWillpower" id="currentWillpower3" value="3">
-            <input type="checkbox" name="currentWillpower" id="currentWillpower4" value="4">
-            <input type="checkbox" name="currentWillpower" id="currentWillpower5" value="5">
-            <input type="checkbox" name="currentWillpower" id="currentWillpower6" value="6">
-            <input type="checkbox" name="currentWillpower" id="currentWillpower7" value="7">
-            <input type="checkbox" name="currentWillpower" id="currentWillpower8" value="8">
-            <input type="checkbox" name="currentWillpower" id="currentWillpower9" value="9">
-            <input type="checkbox" name="currentWillpower" id="currentWillpower10" value="10">
-          </li>
-          <!-- You cannot have more temporary Willpower than permenant -->
-        </ul>
-      </div>
-
-      <div class="health">
-        <h3>HEALTH</h3>
-        <br>
-        <li>
-          <div class="statsBox">
-            <div>
-              Bruised :
-            </div>
-            <div>
-              <input type="checkbox" name="bruisedHealth" id="bruisedHealth">
-            </div>
+<br>
+      <div class="attributes-wrapper">
+    
+          <div class="equipment">
+              <h3>EQUIPMENT</h3>
+              <div class="lines"></div><br>
+              <div class="lines"></div><br>
+              <div class="lines"></div><br>
+              <div class="lines"></div><br>
+              <div class="lines"></div><br>
+              <div class="lines"></div>
           </div>
-        </li>
-        <br>
-        <li>
-          <div class="statsBox">
-            <div>
-              Hurt -1 :
-            </div>
-            <div>
-              <input type="checkbox" name="hurtHealth" id="hurtHealth">
-            </div>
+    
+          <div class="attributes">
+              <h3>ATTACKS</h3>
+              <div class="lines"></div><br>
+              <div class="lines"></div><br>
+              <div class="lines"></div><br>
+              <div class="lines"></div><br>
+              <div class="lines"></div><br>
+              <div class="lines"></div>
           </div>
-        </li>
-        <br>
-        <li>
-          <div class="statsBox">
-            <div>
-              Injured -1 :
-            </div>
-            <div>
-              <input type="checkbox" name="injuredHealth" id="injuredHealth">
-            </div>
-          </div>
-        </li>
-        <br>
-        <li>
-          <div class="statsBox">
-            <div>
-              Wounded -2 :
-            </div>
-            <div>
-              <input type="checkbox" name="woundedHealth" id="woundedHealth">
-            </div>
-          </div>
-        </li>
-        <br>
-        <li>
-          <div class="statsBox">
-            <div>
-              Mauled -2 :
-            </div>
-            <div>
-              <input type="checkbox" name="mauledHealth" id="mauledHealth">
-            </div>
-          </div>
-        </li>
-        <br>
-        <li>
-          <div class="statsBox">
-            <div>
-              Crippled -5 :
-            </div>
-            <div>
-              <input type="checkbox" name="crippledHealth" id="crippledHealth">
-            </div>
-          </div>
-        </li>
-        <br>
-        <li>
-          <div class="statsBox">
-            <div>
-              Incapacitated :
-            </div>
-            <div>
-              <input type="checkbox" name="incapacitatedHealth" id="incapacitatedHealth">
-            </div>
-          </div>
-        </li>
-      </div>
-
+        </div>
     </div>
-    <script src="app.js" charset="utf-8"></script>
+      <script src="app.js" charset="utf-8"></script>
 </body>
 
+<div class="pageWideSectional">
+  <footer>
+    <p>Sera 'KaliKatTherfae' Lorell with respect to White Wolf and Onyx Path Publishing</p>
+  </footer>
+</div>
+
 <!-- 20180429 Don't forget to come back and re read and tidy code -->
+
 </html>
