@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<!-- OWoD Mortals -->
+<!-- Issue with radio buttons multiple select fixed -->
+<!-- change radio buttons to stylized circular checkboxes 20180308 -->
+<!-- 20180429 You really set yourself a bitch of a challenge - you can and WILL do this! -->
+<html>
+
+<head>
+    <meta name="description" content="World of Darkness Core Character Sheet - Old World of Darkness Exiles">
+    <title>WOD - Exiles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>WORLD OF DARKNESS - EXILES</h1>
+    <p>Character Sheet Generator, XP value calculator and spend tracker</p>
+
+    <div>
+        <div>
+            <button id="calculateXp">Calculate XP Value Button</button>
+            <!-- 20180308 Currently returns: "Some Number", need to write and apply calculator -->
+            <button id="validateStarterSetup">Validate Starter Setup</button>
+            <!-- 20180308 Need the JS for this  20180429 JS does not work -->
+            <button id="randomStarterAssignment">Generate Random Starter Character</button>
+            <!-- 20180308 Need to JS this too -->
+            <button id="testAttributes">Test Attributes</button>
+        </div>
+        <div>
+            XP Value:
+            <span id="xpDisplay"></span>
+            Valid Starter Character:
+            <span id="validateCheck"></span>
+            Are Attributes valid?:
+            <span id="testAttributesOutput"></span>
+        </div>
+
+    </div>
+
+    <div class="description">
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Character Name">
+            </li>
+            <li>
+                <label for="player">Player:</label>
+                <input type="text" name="player" id="player" placeholder="Your Name">
+            </li>
+            <li>
+                <label for="story">Player:</label>
+                <input type="text" name="story" id="story" placeholder="Your Name">
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                Pro:
+                <br>
+                <select id="Pro">
+                    <option value="ChooseOne">Choose one</option>
+                    <option value="Chastity">Chastity</option>
+                    <option value="Temperance">Temperance</option>
+                    <option value="Charity">Charity</option>
+                    <option value="Diligence">Diligence</option>
+                    <option value="Patience">Patience</option>
+                    <option value="Kindness">Kindness</option>
+                    <option value="Humility">Humility</option>
+                </select>
+            </li>
+            <li>
+                Con:
+                <br>
+                <select id="Con">
+                    <option value="ChooseOne">Choose one</option>
+                    <option value="Lust">Lust</option>
+                    <option value="Gluttony">Gluttony</option>
+                    <option value="Greed">Greed</option>
+                    <option value="Sloth">Sloth</option>
+                    <option value="Wrath">Wrath</option>
+                    <option value="Envy">Envy</option>
+                    <option value="Pride">Pride</option>
+                </select>
+            </li>
+            <li>
+                <label for="concept">Concept:</label>
+                <input type="text" name="concept" id="concept" placeholder="What inspired this character creation?">
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <label for="race">Race:</label>
+                <input type="text" name="race" id="race" placeholder="Your race/species">
+            </li>
+            <li>
+                <label for="ship">Ship:</label>
+                <input type="text" name="ship" id="ship">
+            </li>
+            <li>
+                <label for="homeSystem">Home System:</label>
+                <input type="text" name="homeSystem" id="homeSystem">
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>ATTRIBUTES</h2>
+        <div class="attributes-wrapper">
+            <div class="attributes">
+                <!-- Physical -->
+                <h3>PHYSICAL</h3>
+                <ul>
+                    <li>
+                        <div class="statsBox container">
+                            <div>
+                                <label for="strengthSpecialisation">Strength:</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="physical strength" name="strength" id="strength_1" value="0" checked>
+                                <input type="radio" class="physical strength" name="strength" id="strength_2" value="1">
+                                <input type="radio" class="physical strength" name="strength" id="strength_3" value="2">
+                                <input type="radio" class="physical strength" name="strength" id="strength_4" value="3">
+                                <input type="radio" class="physical strength" name="strength" id="strength_5" value="4">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                <label for="dexteritySpecialisation">Dexterity:</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="physical dexterity" name="dexterity" id="dexterity_1" value="0" checked>
+                                <input type="radio" class="physical dexterity" name="dexterity" id="dexterity_2" value="1">
+                                <input type="radio" class="physical dexterity" name="dexterity" id="dexterity_3" value="2">
+                                <input type="radio" class="physical dexterity" name="dexterity" id="dexterity_4" value="3">
+                                <input type="radio" class="physical dexterity" name="dexterity" id="dexterity_5" value="4">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="statsBox">
+                            <div class="attributeName" id="attributeName">
+                                <label for="staminaSpecialisation">Stamina:</label>
+                            </div>
+                            <div class="attributeValue" id="attributeValue">
+                                <input type="radio" class="physical stamina" name="stamina" id="stamina_1" value="0" checked>
+                                <input type="radio" class="physical stamina" name="stamina" id="stamina_2" value="1">
+                                <input type="radio" class="physical stamina" name="stamina" id="stamina_3" value="2">
+                                <input type="radio" class="physical stamina" name="stamina" id="stamina_4" value="3">
+                                <input type="radio" class="physical stamina" name="stamina" id="stamina_5" value="4">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="attributes">
+                <!-- Social -->
+                <h3>SOCIAL</h3>
+                <ul>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                <label for="charismaSpecialisation">Charisma:</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="social" name="charisma" id="charisma_1" value="0" checked>
+                                <input type="radio" class="social" name="charisma" id="charisma_2" value="1">
+                                <input type="radio" class="social" name="charisma" id="charisma_3" value="2">
+                                <input type="radio" class="social" name="charisma" id="charisma_4" value="3">
+                                <input type="radio" class="social" name="charisma" id="charisma_5" value="4">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                <label for="manipulationSpecialisation">Manipulation:</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="social" name="manipulation" id="manipulation_1" value="0" checked>
+                                <input type="radio" class="social" name="manipulation" id="manipulation_2" value="1">
+                                <input type="radio" class="social" name="manipulation" id="manipulation_3" value="2">
+                                <input type="radio" class="social" name="manipulation" id="manipulation_4" value="3">
+                                <input type="radio" class="social" name="manipulation" id="manipulation_5" value="4">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                <label for="appearanceSpecialisation">Appearance:</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="social" name="appearance" id="appearance_1" value="0" checked>
+                                <input type="radio" class="social" name="appearance" id="appearance_2" value="1">
+                                <input type="radio" class="social" name="appearance" id="appearance_3" value="2">
+                                <input type="radio" class="social" name="appearance" id="appearance_4" value="3">
+                                <input type="radio" class="social" name="appearance" id="appearance_5" value="4">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="attributes">
+                <!-- Mental -->
+                <h3>MENTAL</h3>
+                <ul>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                <label for="perceptionSpecialisation">Perception:</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="mental" name="perception" id="perception_1" value="0" checked>
+                                <input type="radio" class="mental" name="perception" id="perception_2" value="1">
+                                <input type="radio" class="mental" name="perception" id="perception_3" value="2">
+                                <input type="radio" class="mental" name="perception" id="perception_4" value="3">
+                                <input type="radio" class="mental" name="perception" id="perception_5" value="4">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                <label for="intelligenceSpecialisation">Intelligence:</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="mental" name="intelligence" id="intelligence_1" value="0" checked>
+                                <input type="radio" class="mental" name="intelligence" id="intelligence_2" value="1">
+                                <input type="radio" class="mental" name="intelligence" id="intelligence_3" value="2">
+                                <input type="radio" class="mental" name="intelligence" id="intelligence_4" value="3">
+                                <input type="radio" class="mental" name="intelligence" id="intelligence_5" value="4">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                <label for="witsSpecialisation">Wits:</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="mental" name="wits" id="wits_1" value="0" checked>
+                                <input type="radio" class="mental" name="wits" id="wits_2" value="1">
+                                <input type="radio" class="mental" name="wits" id="wits_3" value="2">
+                                <input type="radio" class="mental" name="wits" id="wits_4" value="3">
+                                <input type="radio" class="mental" name="wits" id="wits_5" value="4">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h2>ABILITIES</h2>
+
+        <div class="abilities-wrapper">
+            <div class="abilities">
+                <!-- Talents -->
+                <h3>TALENTS</h3>
+                <ul>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Athletics:
+                                <!-- t1 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="athleticsTraining" id="athleticsTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="athletics" id="athletics_1">
+                                <input type="radio" name="athletics" id="athletics_2">
+                                <input type="radio" name="athletics" id="athletics_3">
+                                <input type="radio" name="athletics" id="athletics_4">
+                                <input type="radio" name="athletics" id="athletics_5">
+                            </div>
+                        </div>
+                        <input type="text" name="athleticsSpecialisation" id="athleticsSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Brawl:
+                                <!-- t2 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="brawlTraining" id="brawlTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="brawl" id="brawl_1">
+                                <input type="radio" name="brawl" id="brawl_2">
+                                <input type="radio" name="brawl" id="brawl_3">
+                                <input type="radio" name="brawl" id="brawl_4">
+                                <input type="radio" name="brawl" id="brawl_5">
+                            </div>
+                        </div>
+                        <input type="text" name="brawlSpecialisation" id="brawlSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Larceny:
+                                <!-- t3 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="larcenyTraining" id="larcenyTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="larceny" id="larceny_1">
+                                <input type="radio" name="larceny" id="larceny_2">
+                                <input type="radio" name="larceny" id="larceny_3">
+                                <input type="radio" name="larceny" id="larceny_4">
+                                <input type="radio" name="larceny" id="larceny_5">
+                            </div>
+                        </div>
+                        <input type="text" name="larcenySpecialisation" id="larcenySpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Marksmanship:
+                                <!-- t4 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="marksmanshipTraining" id="marksmanshipTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="marksmanship" id="marksmanship_1">
+                                <input type="radio" name="marksmanship" id="marksmanship_2">
+                                <input type="radio" name="marksmanship" id="marksmanship_3">
+                                <input type="radio" name="marksmanship" id="marksmanship_4">
+                                <input type="radio" name="marksmanship" id="marksmanship_5">
+                            </div>
+                        </div>
+                        <input type="text" name="marksmanshipSpecialisation" id="marksmanshipSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Melee:
+                                <!-- t5 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="meleeTraining" id="meleeTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="melee" id="melee_1">
+                                <input type="radio" name="melee" id="melee_2">
+                                <input type="radio" name="melee" id="melee_3">
+                                <input type="radio" name="melee" id="melee_4">
+                                <input type="radio" name="melee" id="melee_5">
+                            </div>
+                        </div>
+                        <input type="text" name="meleeSpecialisation" id="meleeSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Pilot:
+                                <!-- t6 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="pilotTraining" id="pilotTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="pilot" id="pilot_1">
+                                <input type="radio" name="pilot" id="pilot_2">
+                                <input type="radio" name="pilot" id="pilot_3">
+                                <input type="radio" name="pilot" id="pilot_4">
+                                <input type="radio" name="pilot" id="pilot_5">
+                            </div>
+                        </div>
+                        <input type="text" name="pilotSpecialisation" id="pilotSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Stealth:
+                                <!-- t7 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="stealthTraining" id="stealthTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="stealth" id="stealth_1">
+                                <input type="radio" name="stealth" id="stealth_2">
+                                <input type="radio" name="stealth" id="stealth_3">
+                                <input type="radio" name="stealth" id="stealth_4">
+                                <input type="radio" name="stealth" id="stealth_5">
+                            </div>
+                        </div>
+                        <input type="text" name="stealthSpecialisation" id="stealthSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Survival:
+                                <!-- t8 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="survivalTraining" id="survivalTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="survival" id="survival_1">
+                                <input type="radio" name="survival" id="survival_2">
+                                <input type="radio" name="survival" id="survival_3">
+                                <input type="radio" name="survival" id="survival_4">
+                                <input type="radio" name="survival" id="survival_5">
+                            </div>
+                        </div>
+                        <input type="text" name="survivalSpecialisation" id="survivalSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="abilities">
+                <!-- Skills -->
+                <h3>SKILLS</h3>
+                <ul>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Animal Ken:
+                                <!-- s1 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="animalKenTraining" id="animalKenTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="animalKen" id="animalKen_1">
+                                <input type="radio" name="animalKen" id="animalKen_2">
+                                <input type="radio" name="animalKen" id="animalKen_3">
+                                <input type="radio" name="animalKen" id="animalKen_4">
+                                <input type="radio" name="animalKen" id="animalKen_5">
+                            </div>
+                        </div>
+                        <input type="text" name="animalKenSpecialisation" id="animalKenSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Empathy:
+                                <!-- s2 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="empathyTraining" id="empathyTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="empathy" id="empathy_1">
+                                <input type="radio" name="empathy" id="empathy_2">
+                                <input type="radio" name="empathy" id="empathy_3">
+                                <input type="radio" name="empathy" id="empathy_4">
+                                <input type="radio" name="empathy" id="empathy_5">
+                            </div>
+                        </div>
+                        <input type="text" name="empathySpecialisation" id="empathySpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Intimidation:
+                                <!-- s3 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="intimidationTraining" id="intimidationTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="intimidation" id="intimidation_1">
+                                <input type="radio" name="intimidation" id="intimidation_2">
+                                <input type="radio" name="intimidation" id="intimidation_3">
+                                <input type="radio" name="intimidation" id="intimidation_4">
+                                <input type="radio" name="intimidation" id="intimidation_5">
+                            </div>
+                        </div>
+                        <input type="text" name="intimidationSpecialisation" id="intimidationSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Performance:
+                                <!-- s4 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="performanceTraining" id="performanceTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="performance" id="performance_1">
+                                <input type="radio" name="performance" id="performance_2">
+                                <input type="radio" name="performance" id="performance_3">
+                                <input type="radio" name="performance" id="performance_4">
+                                <input type="radio" name="performance" id="performance_5">
+                            </div>
+                        </div>
+                        <input type="text" name="performanceSpecialisation" id="performanceSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Persuasion:
+                                <!-- s5 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="persuasionTraining" id="persuasionTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="persuasion" id="persuasion_1">
+                                <input type="radio" name="persuasion" id="persuasion_2">
+                                <input type="radio" name="persuasion" id="persuasion_3">
+                                <input type="radio" name="persuasion" id="persuasion_4">
+                                <input type="radio" name="persuasion" id="persuasion_5">
+                            </div>
+                        </div>
+                        <input type="text" name="persuasionSpecialisation" id="persuasionSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Socialise:
+                                <!-- s6 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="socialiseTraining" id="socialiseTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="socialise" id="socialise_1">
+                                <input type="radio" name="socialise" id="socialise_2">
+                                <input type="radio" name="socialise" id="socialise_3">
+                                <input type="radio" name="socialise" id="socialise_4">
+                                <input type="radio" name="socialise" id="socialise_5">
+                            </div>
+                        </div>
+                        <input type="text" name="socialiseSpecialisation" id="socialiseSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Streetwise:
+                                <!-- s7 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="streetwiseTraining" id="streetwiseTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="streetwise" id="streetwise_1">
+                                <input type="radio" name="streetwise" id="streetwise_2">
+                                <input type="radio" name="streetwise" id="streetwise_3">
+                                <input type="radio" name="streetwise" id="streetwise_4">
+                                <input type="radio" name="streetwise" id="streetwise_5">
+                            </div>
+                        </div>
+                        <input type="text" name="streetwiseSpecialisation" id="streetwiseSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Subterfuge:
+                                <!-- s8 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="subterfugeTraining" id="subterfugeTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="subterfuge" id="subterfuge_1">
+                                <input type="radio" name="subterfuge" id="subterfuge_2">
+                                <input type="radio" name="subterfuge" id="subterfuge_3">
+                                <input type="radio" name="subterfuge" id="subterfuge_4">
+                                <input type="radio" name="subterfuge" id="subterfuge_5">
+                            </div>
+                        </div>
+                        <input type="text" name="subterfugeSpecialisation" id="subterfugeSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="abilities">
+                <!-- Knowledges -->
+                <h3>KNOWLEDGES</h3>
+                <ul>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Academics:
+                                <!-- k1 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="academicsTraining" id="academicsTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="academics" id="academics_1">
+                                <input type="radio" name="academics" id="academics_2">
+                                <input type="radio" name="academics" id="academics_3">
+                                <input type="radio" name="academics" id="academics_4">
+                                <input type="radio" name="academics" id="academics_5">
+                            </div>
+                        </div>
+                        <input type="text" name="academicsSpecialisation" id="academicsSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Computer:
+                                <!-- k2 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="computerTraining" id="computerTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="computer" id="computer_1">
+                                <input type="radio" name="computer" id="computer_2">
+                                <input type="radio" name="computer" id="computer_3">
+                                <input type="radio" name="computer" id="computer_4">
+                                <input type="radio" name="computer" id="computer_5">
+                            </div>
+                        </div>
+                        <input type="text" name="computerSpecialisation" id="computerSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Fabrication:
+                                <!-- k3 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="fabricationTraining" id="fabricationTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="fabrication" id="fabrication_1">
+                                <input type="radio" name="fabrication" id="fabrication_2">
+                                <input type="radio" name="fabrication" id="fabrication_3">
+                                <input type="radio" name="fabrication" id="fabrication_4">
+                                <input type="radio" name="fabrication" id="fabrication_5">
+                            </div>
+                        </div>
+                        <input type="text" name="fabricationSpecialisation" id="fabricationSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Investigation:
+                                <!-- k4 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="investigationTraining" id="investigationTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="investigation" id="investigation_1">
+                                <input type="radio" name="investigation" id="investigation_2">
+                                <input type="radio" name="investigation" id="investigation_3">
+                                <input type="radio" name="investigation" id="investigation_4">
+                                <input type="radio" name="investigation" id="investigation_5">
+                            </div>
+                        </div>
+                        <input type="text" name="investigationSpecialisation" id="investigationSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Law:
+                                <!-- k5 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="lawTraining" id="lawTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="law" id="law_1">
+                                <input type="radio" name="law" id="law_2">
+                                <input type="radio" name="law" id="law_3">
+                                <input type="radio" name="law" id="law_4">
+                                <input type="radio" name="law" id="law_5">
+                            </div>
+                        </div>
+                        <input type="text" name="lawSpecialisation" id="lawSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Medicine:
+                                <!-- k6 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="medicineTraining" id="medicineTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="medicine" id="medicine_1">
+                                <input type="radio" name="medicine" id="medicine_2">
+                                <input type="radio" name="medicine" id="medicine_3">
+                                <input type="radio" name="medicine" id="medicine_4">
+                                <input type="radio" name="medicine" id="medicine_5">
+                            </div>
+                        </div>
+                        <input type="text" name="medicineSpecialisation" id="medicineSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Politics:
+                                <!-- k7 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="politicsTraining" id="politicsTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="politics" id="politics_1">
+                                <input type="radio" name="politics" id="politics_2">
+                                <input type="radio" name="politics" id="politics_3">
+                                <input type="radio" name="politics" id="politics_4">
+                                <input type="radio" name="politics" id="politics_5">
+                            </div>
+                        </div>
+                        <input type="text" name="politicsSpecialisation" id="politicsSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                    <li>
+                        <div class="statsBox">
+                            <div>
+                                Science:
+                                <!-- k8 -->
+                            </div>
+                            <div>
+                                <input type="checkbox" name="scienceTraining" id="scienceTraining">
+                                <!-- 20180429 I want a slider for the training checkbox -->
+                                <input type="radio" name="science" id="science_1">
+                                <input type="radio" name="science" id="science_2">
+                                <input type="radio" name="science" id="science_3">
+                                <input type="radio" name="science" id="science_4">
+                                <input type="radio" name="science" id="science_5">
+                            </div>
+                        </div>
+                        <input type="text" name="scienceSpecialisation" id="scienceSpecialisation" placeholder="Specialization if applicable">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h2>ADVANTAGES</h2>
+        <div class="advantages-wrapper">
+            <div class="advantages">
+                <ul>
+                    <!-- Merits -->
+                    <h3>MERITS</h3>
+                    <li>
+                        <div class='inline' name="merit1">
+                            <div>
+                                <input type="checkbox" name="merit1" id="merit1value1">
+                                <input type="checkbox" name="merit1" id="merit1value2">
+                                <input type="checkbox" name="merit1" id="merit1value3">
+                                <input type="checkbox" name="merit1" id="merit1value4">
+                                <input type="checkbox" name="merit1" id="merit1value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="merit1select" name="merit1select">
+                                    <option value="Choose merit">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='inline' name="merit2">
+                            <div>
+                                <input type="checkbox" name="merit2" id="merit2value1">
+                                <input type="checkbox" name="merit2" id="merit2value2">
+                                <input type="checkbox" name="merit2" id="merit2value3">
+                                <input type="checkbox" name="merit2" id="merit2value4">
+                                <input type="checkbox" name="merit2" id="merit2value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="merit2select" name="merit2select">
+                                    <option value="Choose merit">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='inline' name="merit3">
+                            <div>
+                                <input type="checkbox" name="merit3" id="merit3value1">
+                                <input type="checkbox" name="merit3" id="merit3value2">
+                                <input type="checkbox" name="merit3" id="merit3value3">
+                                <input type="checkbox" name="merit3" id="merit3value4">
+                                <input type="checkbox" name="merit3" id="merit3value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="merit3select" name="merit3select">
+                                    <option value="Choose merit">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='inline' name="merit4">
+                            <div>
+                                <input type="checkbox" name="merit4" id="merit4value1">
+                                <input type="checkbox" name="merit4" id="merit4value2">
+                                <input type="checkbox" name="merit4" id="merit4value3">
+                                <input type="checkbox" name="merit4" id="merit4value4">
+                                <input type="checkbox" name="merit4" id="merit4value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="merit4select" name="merit4select">
+                                    <option value="Choose merit">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='inline' name="merit5">
+                            <div>
+                                <input type="checkbox" name="merit5" id="merit5value1">
+                                <input type="checkbox" name="merit5" id="merit5value2">
+                                <input type="checkbox" name="merit5" id="merit5value3">
+                                <input type="checkbox" name="merit5" id="merit5value4">
+                                <input type="checkbox" name="merit5" id="merit5value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="merit5select" name="merit5select">
+                                    <option value="Choose merit">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='inline' name="merit6">
+                            <div>
+                                <input type="checkbox" name="merit6" id="merit6value1">
+                                <input type="checkbox" name="merit6" id="merit6value2">
+                                <input type="checkbox" name="merit6" id="merit6value3">
+                                <input type="checkbox" name="merit6" id="merit6value4">
+                                <input type="checkbox" name="merit6" id="merit6value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="merit6select" name="merit6select">
+                                    <option value="Choose merit">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    <!-- Flaws -->
+                    <h3>FLAWS</h3>
+                    <li>
+                        <div class='inline' name="flaw1">
+                            <div>
+                                <input type="checkbox" name="flaw1" id="flaw1value1">
+                                <input type="checkbox" name="flaw1" id="flaw1value2">
+                                <input type="checkbox" name="flaw1" id="flaw1value3">
+                                <input type="checkbox" name="flaw1" id="flaw1value4">
+                                <input type="checkbox" name="flaw1" id="flaw1value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="flaw1select" name="flaw1select">
+                                    <option value="Choose flaw">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='inline' name="flaw2">
+                            <div>
+                                <input type="checkbox" name="flaw2" id="flaw2value1">
+                                <input type="checkbox" name="flaw2" id="flaw2value2">
+                                <input type="checkbox" name="flaw2" id="flaw2value3">
+                                <input type="checkbox" name="flaw2" id="flaw2value4">
+                                <input type="checkbox" name="flaw2" id="flaw2value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="flaw2select" name="flaw2select">
+                                    <option value="Choose flaw">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='inline' name="flaw3">
+                            <div>
+                                <input type="checkbox" name="flaw3" id="flaw3value1">
+                                <input type="checkbox" name="flaw3" id="flaw3value2">
+                                <input type="checkbox" name="flaw3" id="flaw3value3">
+                                <input type="checkbox" name="flaw3" id="flaw3value4">
+                                <input type="checkbox" name="flaw3" id="flaw3value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="flaw3select" name="flaw3select">
+                                    <option value="Choose flaw">Choose one</option>
+                            </div>
+                        </div>
+                        </select>
+                    </li>
+                    <li>
+                        <div class='inline' name="flaw4">
+                            <div>
+                                <input type="checkbox" name="flaw4" id="flaw4value1">
+                                <input type="checkbox" name="flaw4" id="flaw4value2">
+                                <input type="checkbox" name="flaw4" id="flaw4value3">
+                                <input type="checkbox" name="flaw4" id="flaw4value4">
+                                <input type="checkbox" name="flaw4" id="flaw4value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="flaw4select" name="flaw4select">
+                                    <option value="Choose flaw">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='inline' name="flaw5">
+                            <div>
+                                <input type="checkbox" name="flaw5" id="flaw5value1">
+                                <input type="checkbox" name="flaw5" id="flaw5value2">
+                                <input type="checkbox" name="flaw5" id="flaw5value3">
+                                <input type="checkbox" name="flaw5" id="flaw5value4">
+                                <input type="checkbox" name="flaw5" id="flaw5value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="flaw5select" name="flaw5select">
+                                    <option value="Choose flaw">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class='inline' name="flaw6">
+                            <div>
+                                <input type="checkbox" name="flaw6" id="flaw6value1">
+                                <input type="checkbox" name="flaw6" id="flaw6value2">
+                                <input type="checkbox" name="flaw6" id="flaw6value3">
+                                <input type="checkbox" name="flaw6" id="flaw6value4">
+                                <input type="checkbox" name="flaw6" id="flaw6value5">
+                            </div>
+                        </div>
+                        <div class='inline'>
+                            <div>
+                                <select id="flaw6select" name="flaw6select">
+                                    <option value="Choose flaw">Choose one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="advantages">
+                <ul>
+                <ul class="humanity">
+                    <h3>HUMANITY</h3>
+                    <li>
+                        <input type="checkbox" name="humanity" id="humanity1">
+                        <input type="checkbox" name="humanity" id="humanity2">
+                        <input type="checkbox" name="humanity" id="humanity3">
+                        <input type="checkbox" name="humanity" id="humanity4">
+                        <input type="checkbox" name="humanity" id="humanity5">
+                        <input type="checkbox" name="humanity" id="humanity6">
+                        <input type="checkbox" name="humanity" id="humanity7">
+                        <input type="checkbox" name="humanity" id="humanity8">
+                        <input type="checkbox" name="humanity" id="humanity9">
+                        <input type="checkbox" name="humanity" id="humanity10">
+                    </li>
+                </ul>
+
+                <ul class="willpower">
+                    <h3>WILLPOWER</h3>
+                    <li align-content: center>
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower1">
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower2">
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower3">
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower4">
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower5">
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower6">
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower7">
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower8">
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower9">
+                        <input type="checkbox" name="permenantWillpower" id="permenantWillpower10">
+                    </li>
+                    <li>
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower1" value="1">
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower2" value="2">
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower3" value="3">
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower4" value="4">
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower5" value="5">
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower6" value="6">
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower7" value="7">
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower8" value="8">
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower9" value="9">
+                        <input type="checkbox" name="currentWillpower" id="currentWillpower10" value="10">
+                    </li>
+                    <!-- You cannot have more temporary Willpower than permenant -->
+                </ul>
+            </div>
+
+            <div class="health">
+                <h3>HEALTH</h3>
+                <br>
+                <li>
+                    <div class="statsBox">
+                        <div>
+                            Mortal :
+                        </div>
+                        <div>
+                            <input type="checkbox" name="mortalHealth1" id="mortalHealth1">
+                            <input type="checkbox" name="mortalHealth2" id="mortalHealth2">
+                            <input type="checkbox" name="mortalHealth3" id="mortalHealth3">
+                            <input type="checkbox" name="mortalHealth4" id="mortalHealth4">
+                            <input type="checkbox" name="mortalHealth5" id="mortalHealth5">
+                            <input type="checkbox" name="mortalHealth6" id="mortalHealth6">
+                            <input type="checkbox" name="mortalHealth7" id="mortalHealth7">
+                            <input type="checkbox" name="mortalHealth8" id="mortalHealth8">
+                            <input type="checkbox" name="mortalHealth9" id="mortalHealth9">
+                            <input type="checkbox" name="mortalHealth10" id="mortalHealth10">
+                        </div>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div class="statsBox">
+                        <div>
+                            <input type="text" name="injury1" id="injury1">
+                        </div>
+                        <div>
+                            <input type="checkbox" name="injury1Health1" id="injury1Health1">
+                            <input type="checkbox" name="injury1Health2" id="injury1Health2">
+                            <input type="checkbox" name="injury1Health3" id="injury1Health3">
+                            <input type="checkbox" name="injury1Health4" id="injury1Health4">
+                            <input type="checkbox" name="injury1Health5" id="injury1Health5">
+                            <input type="checkbox" name="injury1Health6" id="injury1Health6">
+                            <input type="checkbox" name="injury1Health7" id="injury1Health7">
+                            <input type="checkbox" name="injury1Health8" id="injury1Health8">
+                            <input type="checkbox" name="injury1Health9" id="injury1Health9">
+                            <input type="checkbox" name="injury1Health10" id="injury1Health10">
+                            </div>                     
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div class="statsBox">
+                        <div>
+                            <input type="text" name="injury2" id="injury2">
+                        </div>
+                        <div>
+                            <input type="checkbox" name="injury2Health1" id="injury2Health1">
+                            <input type="checkbox" name="injury2Health2" id="injury2Health2">
+                            <input type="checkbox" name="injury2Health3" id="injury2Health3">
+                            <input type="checkbox" name="injury2Health4" id="injury2Health4">
+                            <input type="checkbox" name="injury2Health5" id="injury2Health5">
+                            <input type="checkbox" name="injury2Health6" id="injury2Health6">
+                            <input type="checkbox" name="injury2Health7" id="injury2Health7">
+                            <input type="checkbox" name="injury2Health8" id="injury2Health8">
+                            <input type="checkbox" name="injury2Health9" id="injury2Health9">
+                            <input type="checkbox" name="injury2Health10" id="injury2Health10">
+                            </div>                   
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div class="statsBox">
+                        <div>
+                            <input type="text" name="injury3" id="injury3">
+                        </div>
+                        <div>
+                            <input type="checkbox" name="injury3Health1" id="injury3Health1">
+                            <input type="checkbox" name="injury3Health2" id="injury3Health2">
+                            <input type="checkbox" name="injury3Health3" id="injury3Health3">
+                            <input type="checkbox" name="injury3Health4" id="injury3Health4">
+                            <input type="checkbox" name="injury3Health5" id="injury3Health5">
+                            <input type="checkbox" name="injury3Health6" id="injury3Health6">
+                            <input type="checkbox" name="injury3Health7" id="injury3Health7">
+                            <input type="checkbox" name="injury3Health8" id="injury3Health8">
+                            <input type="checkbox" name="injury3Health9" id="injury3Health9">
+                            <input type="checkbox" name="injury3Health10" id="injury3Health10">
+                                                </div>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div class="statsBox">
+                        <div>
+                            <input type="text" name="injury4" id="injury4">
+                        </div>
+                        <div>
+                            <input type="checkbox" name="injury4Health1" id="injury4Health1">
+                            <input type="checkbox" name="injury4Health2" id="injury4Health2">
+                            <input type="checkbox" name="injury4Health3" id="injury4Health3">
+                            <input type="checkbox" name="injury4Health4" id="injury4Health4">
+                            <input type="checkbox" name="injury4Health5" id="injury4Health5">
+                            <input type="checkbox" name="injury4Health6" id="injury4Health6">
+                            <input type="checkbox" name="injury4Health7" id="injury4Health7">
+                            <input type="checkbox" name="injury4Health8" id="injury4Health8">
+                            <input type="checkbox" name="injury4Health9" id="injury4Health9">
+                            <input type="checkbox" name="injury4Health10" id="injury4Health10">                        </div>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div class="statsBox">
+                        <div>
+                            <input type="text" name="injury5" id="injury5">
+                        </div>
+                        <div>
+                            <input type="checkbox" name="injury5Health1" id="injury5Health1">
+                            <input type="checkbox" name="injury5Health2" id="injury5Health2">
+                            <input type="checkbox" name="injury5Health3" id="injury5Health3">
+                            <input type="checkbox" name="injury5Health4" id="injury5Health4">
+                            <input type="checkbox" name="injury5Health5" id="injury5Health5">
+                            <input type="checkbox" name="injury5Health6" id="injury5Health6">
+                            <input type="checkbox" name="injury5Health7" id="injury5Health7">
+                            <input type="checkbox" name="injury5Health8" id="injury5Health8">
+                            <input type="checkbox" name="injury5Health9" id="injury5Health9">
+                            <input type="checkbox" name="injury5Health10" id="injury5Health10">                        </div>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div class="statsBox">
+                        <div>
+                            Incapacitated :
+                        </div>
+                        <div>
+                            <input type="checkbox" name="blankHealth1" id="blankHealth1">
+                            <input type="checkbox" name="blankHealth2" id="blankHealth2">
+                            <input type="checkbox" name="blankHealth3" id="blankHealth3">
+                            <input type="checkbox" name="blankHealth4" id="blankHealth4">
+                            <input type="checkbox" name="blankHealth5" id="blankHealth5">
+                            <input type="checkbox" name="blankHealth6" id="blankHealth6">
+                            <input type="checkbox" name="blankHealth7" id="blankHealth7">
+                            <input type="checkbox" name="blankHealth8" id="blankHealth8">
+                            <input type="checkbox" name="blankHealth9" id="blankHealth9">
+                            <input type="checkbox" name="blankHealth10" id="blankHealth10">                        </div>
+                    </div>
+                </li>
+            </div>
+
+        </div>
+        <script src="app.js" charset="utf-8"></script>
+</body>
+
+<!-- 20180429 Don't forget to come back and re read and tidy code -->
+
+</html>

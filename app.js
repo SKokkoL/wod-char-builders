@@ -1,8 +1,8 @@
 (function () {
   function calculateXp() {
-    document.getElementById('xpDisplay').innerHTML = 'some number  ';
+    document.getElementById('xpDisplay').innerHTML = 'some parseInt  ';
   }
-  // Calculate XP button should display 'some number' on click (will need calculator applying at some point)
+  // Calculate XP button should display 'some parseInt' on click (will need calculator applying at some point)
   document.getElementById('calculateXp').onclick=calculateXp;
 }) ();
 
@@ -17,43 +17,30 @@
 (function () {
   function testAttributes() {
 
-    //get the value of the selected radio in group strength
     var str=document.querySelector('input[name="strength"]:checked').value;
-    //get the value of the selected radio in group dexterity
     var dex=document.querySelector('input[name="dexterity"]:checked').value;
-    //get the value of the selected radio in group stamina
     var sta=document.querySelector('input[name="stamina"]:checked').value;
-    //add the 3 values together
-    var physicalattribute = Number(str) + Number(dex) + Number(sta) ;
-    console.log(physicalattribute);
+    var physicalAttribute = str + dex + sta ;
+    console.log(physicalAttribute);
     
-    //get the value of the selected radio in group charisma
     var cha=document.querySelector('input[name="charisma"]:checked').value;
-    //get the value of the selected radio in group manipulation
     var man=document.querySelector('input[name="manipulation"]:checked').value;
-    //get the value of the selected radio in group appearance
     var app=document.querySelector('input[name="appearance"]:checked').value;
-    //add the 3 values together
-    var socialattribute = Number(cha) + Number(man) + Number(app) ;
-    console.log(socialattribute);
+    var socialAttribute = cha + man + app ;
+    console.log(socialAttribute);
 
-    //get the value of the selected radio in group perception
     var per=document.querySelector('input[name="perception"]:checked').value;
-    //get the value of the selected radio in group intelligence
     var int=document.querySelector('input[name="intelligence"]:checked').value;
-    //get the value of the selected radio in group wits
     var wit=document.querySelector('input[name="wits"]:checked').value;
-    //add the 3 values together
-    var mentalattribute = Number(per) + Number(int) + Number(wit) ;
-    console.log(mentalattribute);
-
-    document.getElementById('testAttributesOutput').textContent = physicalattribute+socialattribute+mentalattribute;
-
+    var mentalAttribute = per + int + wit ;
+    console.log(mentalAttribute);
   }
-  // Validate attributes setup should display 3 number between 0 and 12 in console
+  // Validate attributes setup should display 3 parseInt between 0 and 12 in console
+    
+  document.getElementById('testAttributesOutput').textContent = parseInt(physicalAttribute, 10)+parseInt(socialAttribute, 10)+parseInt(mentalAttribute, 10);
+  
   document.getElementById('testAttributes').onclick=testAttributes;
 }) ();
-
 
 
 /*
@@ -70,51 +57,51 @@
       var player = window.prompt("What is your name?", "Your name");
       if (person == null || person == "") {
         txt = "Unnamed Player.";
-      } else {
+      } else if {
         txt = person; //need to find a away to input this to input field
         //Character name
         window.prompt("What is your character's name?", "Character name here");
         if (name == null || name == "") {
           txt = "Unnamed Character.";
-        } else {
+        } else if {
           txt = name;
           //Character virtue
           window.prompt("What is your character's virtue?",
             "Chastity, Temperance, Charity, Diligence, Patience, Kindness or Humility");
           if (person == null || person == "") {
             txt = "Unnamed Character.";
-          } else {
+          } else if {
             txt = person;
             //Character vice
             window.prompt("What is your character's vice?",
               "Lust, Gluttony, Greed, Soth, Wrath, Envy or Pride");
             if (person == null || person == "") {
               txt = "Unnamed Character.";
-            } else {
+            } else if {
               txt = person;
               //auspice
               window.prompt("What moon did your character change under?",
                 "Character name here");
               if (person == null || person == "") {
                 txt = "Unnamed Character.";
-              } else {
+              } else if {
                 txt = person;
                 //Tribe y/n
                 window.prompt("Does your character belong to a tribe?",
                   "Yes / No");
                 if (person == null || person == "") {
                   txt = "Unnamed Character.";
-                } else {
+                } else if {
                   txt = person;
                   // tribe choice
                   window.prompt("What is your character's tribe?",
                     "Blood Talon, Bone Shadow, Hunter in Darkness, Iron Master or Storm Lord");
                   if (person == null || person == "") {
                     txt = "Unnamed Character.";
-                  } else {
+                  } else if {
                     txt = person;
 
-                  } else {
+                  } else if {
                     txt = "You cancelled the guided build option.";
                   }
                   document.getElementById("buildDisplay").innerHTML = txt;
